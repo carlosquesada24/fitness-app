@@ -1,24 +1,5 @@
 import React from 'react'
-
-const routine = {
-  id: 'c1024c29-cca3-48c2-87ea-408946301c44',
-  name: "Best chest for motherfuckers",
-  description: "Description 1",
-  totalExercisesCount: 3,
-  estimatedTime: 35,
-  exercisesList: [
-    {
-      id: 1,
-      name: "Diamond push-ups",
-      estimatedTime: 1
-    },
-    {
-      id: 2,
-      name: "Standard push-ups",
-      estimatedTime: 1
-    }
-  ]
-}
+import { routine } from '../../../data'
 
 const page = ({ params }: any) => {
 
