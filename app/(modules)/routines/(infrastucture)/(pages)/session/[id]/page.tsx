@@ -1,5 +1,6 @@
 "use client"
 
+import { useForm } from '@/app/(hooks)/useForm';
 import React, { useState } from 'react'
 
 const exercises = [
@@ -29,15 +30,37 @@ const exercises = [
     },
 ];
 
+const formInitialState = {
+    reps: 0,
+    weight: 0,
+}
+
+interface Form {
+    reps: number;
+    weight: number;
+}
+
 const page = ({ params }: any) => {
     const [currentExercise, setCurrentExercise] = useState(exercises[0])
     const [currentSet, setCurrentSet] = useState(1)
     const [currentExerciseIndex, setCurrentExerciseIndex] = useState(0);
 
+    const [formValues, handleInputChange] = useForm<Form>(formInitialState)
 
     const allSets = currentExercise.sets
     const isCurrentSetLast = currentSet === allSets
     const isLastExercise = currentExerciseIndex === exercises.length - 1
+    const isNextDisabled =
+        (
+            (formValues as Form).reps === 0 ||
+            Number((formValues as Form).reps) === 0 ||
+            (formValues as Form).reps === null
+        ) ||
+        (
+            (formValues as Form).weight === 0 ||
+            Number((formValues as Form).weight) === 0 ||
+            (formValues as Form).weight === null
+        )
     const nextExercise = exercises[currentExerciseIndex + 1]
 
     const handleNextSet = () => {
@@ -69,12 +92,24 @@ const page = ({ params }: any) => {
 
             <div className='my-5'>
                 <label htmlFor="reps">Reps</label>
-                <input className='block' name="reps" type="text" value="0" />
+                <input
+                    className='block bg-slate-500'
+                    name="reps"
+                    type="text"
+                    value={(formValues as Form).reps}
+                    onChange={handleInputChange}
+                />
             </div>
 
             <div className='my-5'>
                 <label htmlFor="weight">Weight</label>
-                <input className='block' name="weight" type="text" value="0" />
+                <input
+                    className='block bg-slate-500'
+                    name="weight"
+                    type="text"
+                    value={(formValues as Form).weight}
+                    onChange={handleInputChange}
+                />
             </div>
 
 
@@ -83,8 +118,9 @@ const page = ({ params }: any) => {
                     block 
                     font-bold 
                     ${isCurrentSetLast ? "hidden" : "block"}
-                    
+                    ${isNextDisabled ? "hover:cursor-not-allowed" : "hover:cursor-pointer"}
                 `}
+                disabled={isNextDisabled}
                 onClick={handleNextSet}
             >Next set</button>
             <button className={`font-bold ${isCurrentSetLast && !isLastExercise ? "block" : "hidden"}`} onClick={handleNextExercise}>Next exercise</button>
