@@ -85,15 +85,15 @@ const page = ({ params }: any) => {
     }
 
     return (
-        <div>
-            <h2>{currentExercise.name}</h2>
+        <>
+            <h2 className='text-[42px] font-bold'>{currentExercise.name}</h2>
 
             <h4>Set {currentSet}/{allSets}</h4>
 
-            <div className='my-5'>
-                <label htmlFor="reps">Reps</label>
+            <div className='my-5 flex justify-center flex-col'>
+                <label className='text-center text-[24px] mb-2' htmlFor="reps">Reps</label>
                 <input
-                    className='block bg-slate-500'
+                    className='block p-2 bg-[#3d3d3d] w-full text-center'
                     name="reps"
                     type="text"
                     value={(formValues as Form).reps}
@@ -101,10 +101,16 @@ const page = ({ params }: any) => {
                 />
             </div>
 
-            <div className='my-5'>
-                <label htmlFor="weight">Weight</label>
+            <div className='my-5 flex justify-center flex-col'>
+                <label className='text-center text-[24px] mb-2' htmlFor="weight">Weight</label>
                 <input
-                    className='block bg-slate-500'
+                    className='
+                        block 
+                        text-[24px] 
+                        p-2 
+                        bg-[#3d3d3d] 
+                        w-full 
+                        text-center'
                     name="weight"
                     type="text"
                     value={(formValues as Form).weight}
@@ -119,6 +125,15 @@ const page = ({ params }: any) => {
                     font-bold 
                     ${isCurrentSetLast ? "hidden" : "block"}
                     ${isNextDisabled ? "hover:cursor-not-allowed" : "hover:cursor-pointer"}
+
+                    p-2
+
+                    bg-[#fff]
+                    text-[#000]
+                    hover:cursor-pointer
+                    hover:bg-[#cfcfcf]
+                    transition
+                    duration-350
                 `}
                 disabled={isNextDisabled}
                 onClick={handleNextSet}
@@ -129,7 +144,7 @@ const page = ({ params }: any) => {
             </span>
 
             <button className={`inline text-[18px] font-bold ${isCurrentSetLast && isLastExercise ? "block" : "hidden"}`}>Finish</button>
-        </div>
+        </>
     )
 }
 
