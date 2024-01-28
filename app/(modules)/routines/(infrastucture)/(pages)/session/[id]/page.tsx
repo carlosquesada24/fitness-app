@@ -3,6 +3,7 @@
 import { useForm } from '@/app/(hooks)/useForm';
 import { buttonStyles } from '@/app/(styles)';
 import { HEADINGS } from '@/app/(styles)/variables';
+import Link from 'next/link';
 import React, { useState } from 'react'
 
 const exercises = [
@@ -139,7 +140,10 @@ const page = ({ params }: any) => {
                 {nextExercise?.name ?? ""}
             </span>
 
-            <button className={`inline text-[18px] font-bold ${isCurrentSetLast && isLastExercise ? "block" : "hidden"} ${buttonStyles}`}>Finish</button>
+            <Link
+                href={`/`}
+                className={`inline text-[18px] font-bold ${isCurrentSetLast && isLastExercise ? "block" : "hidden"} ${buttonStyles}`}
+            >Finish</Link>
         </>
     )
 }
