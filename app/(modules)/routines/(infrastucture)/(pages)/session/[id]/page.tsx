@@ -127,6 +127,8 @@ const page = ({ params }: any) => {
                     ${isCurrentSetLast ? "hidden" : "block"}
                     ${isNextDisabled ? "hover:cursor-not-allowed" : "hover:cursor-pointer"}
                     ${buttonStyles}
+
+                    lg:m-auto
                 `}
                 disabled={isNextDisabled}
                 onClick={handleNextSet}

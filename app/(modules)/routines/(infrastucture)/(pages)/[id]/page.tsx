@@ -1,6 +1,8 @@
 import React from 'react'
 import { routine } from '../../../data'
 import ExercisesGrid from '../../components/ui/ExercisesGrid/ExercisesGrid'
+import Link from 'next/link'
+import { buttonStyles } from '@/app/(styles)'
 
 const page = ({ params }: any) => {
 
@@ -9,17 +11,13 @@ const page = ({ params }: any) => {
       <h2 className='text-[38px] sm:text-[52px] font-bold mb-10'>{routine.name}</h2>
 
       <div className='mb-12'>
-        <span className='
-        p-2
-
-        bg-[#fff]
-        text-[#000]
-        hover:cursor-pointer
-        hover:bg-[#cfcfcf]
-        transition
-        duration-350
-        mr-5
-      '>Start</span>
+        <Link
+          href={`/routines/session/${crypto.randomUUID()}`}
+          className={`
+            ${buttonStyles}
+            mr-5
+            `}
+      >Start</Link>
 
         <span className='mr-5'>32 min</span>
 
