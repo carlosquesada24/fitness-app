@@ -1,5 +1,5 @@
 import React from 'react'
-import { routinesList } from '@/app/(modules)/routines/data'
+import { routinesList } from '@/app/(modules)/routines/domain/data'
 
 const RoutinesGrid = () => {
   return (

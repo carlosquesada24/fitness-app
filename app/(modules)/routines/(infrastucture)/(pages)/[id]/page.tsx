@@ -1,15 +1,19 @@
 import React from 'react'
-import { routine } from '../../../data'
+import { routinesList } from '../../../domain/data'
 import ExercisesGrid from '../../components/ui/ExercisesGrid/ExercisesGrid'
 import Link from 'next/link'
 import { buttonStyles } from '@/app/(styles)'
 import { HEADINGS } from '@/app/(styles)/variables'
 
+
 const page = ({ params }: any) => {
+
+  const routine = routinesList.find(routine => routine.id === params.id)
+  const exercisesListFiltered = routine?.exercisesList ?? []
 
   return (
     <>
-      <h2 className={`${HEADINGS.H1} font-bold mb-10`}>{routine.name}</h2>
+      <h2 className={`${HEADINGS.H1} font-bold mb-10`}>{routine?.name}</h2>
 
       <div className='mb-12'>
         <Link
@@ -26,7 +30,9 @@ const page = ({ params }: any) => {
 
       </div>
 
-      <ExercisesGrid />
+      <ExercisesGrid
+        exersisesList={exercisesListFiltered}
+      />
     </>
   )
 }

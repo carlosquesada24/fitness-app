@@ -1,14 +1,19 @@
-import { routine } from '@/app/(modules)/routines/data'
+import { routine } from '@/app/(modules)/routines/domain/data'
+import { Exercise } from '@/app/(modules)/routines/domain/entities'
 import { HEADINGS } from '@/app/(styles)/variables'
 import React from 'react'
 
-const ExercisesGrid = () => {
+interface Props {
+exersisesList: Exercise[]
+}
+
+const ExercisesGrid = (props: Props) => {
     return (
         <>
             <h4 className={`${HEADINGS.H3} font-bold mb-1`}>Exercises</h4>
             <div className='w-full'>
                 {
-                    routine.exercisesList.map(exercise => (
+                    props.exersisesList.map(exercise => (
                         <div className='
             p-4
             my-4
