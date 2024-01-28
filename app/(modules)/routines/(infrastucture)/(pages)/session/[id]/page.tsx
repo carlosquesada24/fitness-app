@@ -1,6 +1,7 @@
 "use client"
 
 import { useForm } from '@/app/(hooks)/useForm';
+import { buttonStyles } from '@/app/(styles)';
 import React, { useState } from 'react'
 
 const exercises = [
@@ -125,25 +126,17 @@ const page = ({ params }: any) => {
                     font-bold 
                     ${isCurrentSetLast ? "hidden" : "block"}
                     ${isNextDisabled ? "hover:cursor-not-allowed" : "hover:cursor-pointer"}
-
-                    p-2
-
-                    bg-[#fff]
-                    text-[#000]
-                    hover:cursor-pointer
-                    hover:bg-[#cfcfcf]
-                    transition
-                    duration-350
+                    ${buttonStyles}
                 `}
                 disabled={isNextDisabled}
                 onClick={handleNextSet}
             >Next set</button>
-            <button className={`font-bold ${isCurrentSetLast && !isLastExercise ? "block" : "hidden"}`} onClick={handleNextExercise}>Next exercise</button>
+            <button className={`font-bold ${isCurrentSetLast && !isLastExercise ? "block" : "hidden"} ${buttonStyles}`} onClick={handleNextExercise}>Next exercise</button>
             <span className={`inline text-[18px] ${isCurrentSetLast && !isLastExercise ? "block" : "hidden"}`}  >
                 {nextExercise?.name ?? ""}
             </span>
 
-            <button className={`inline text-[18px] font-bold ${isCurrentSetLast && isLastExercise ? "block" : "hidden"}`}>Finish</button>
+            <button className={`inline text-[18px] font-bold ${isCurrentSetLast && isLastExercise ? "block" : "hidden"} ${buttonStyles}`}>Finish</button>
         </>
     )
 }
