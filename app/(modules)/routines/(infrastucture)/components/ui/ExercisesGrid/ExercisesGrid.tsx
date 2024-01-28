@@ -1,10 +1,11 @@
 import { routine } from '@/app/(modules)/routines/data'
+import { HEADINGS } from '@/app/(styles)/variables'
 import React from 'react'
 
 const ExercisesGrid = () => {
     return (
         <>
-            <h4 className='text-[28px] sm:text-[32px] font-bold mb-1'>Exercises</h4>
+            <h4 className={`${HEADINGS.H3} font-bold mb-1`}>Exercises</h4>
             <div className='w-full'>
                 {
                     routine.exercisesList.map(exercise => (

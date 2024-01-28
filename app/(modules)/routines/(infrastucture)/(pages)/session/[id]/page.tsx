@@ -2,6 +2,7 @@
 
 import { useForm } from '@/app/(hooks)/useForm';
 import { buttonStyles } from '@/app/(styles)';
+import { HEADINGS } from '@/app/(styles)/variables';
 import React, { useState } from 'react'
 
 const exercises = [
@@ -87,7 +88,7 @@ const page = ({ params }: any) => {
 
     return (
         <>
-            <h2 className='text-[42px] font-bold'>{currentExercise.name}</h2>
+            <h2 className={`${HEADINGS.H2} font-bold`}>{currentExercise.name}</h2>
 
             <h4>Set {currentSet}/{allSets}</h4>
 
