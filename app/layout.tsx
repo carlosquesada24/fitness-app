@@ -1,8 +1,11 @@
 import type { Metadata } from 'next'
-import { Montserrat } from 'next/font/google'
+import { 
+  Archivo,
+} from 'next/font/google'
 import './globals.css'
+import Link from 'next/link'
 
-const inter = Montserrat({ subsets: ['latin'] })
+const inter = Archivo({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Fitness App',
@@ -17,12 +20,31 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        {/* <nav>
-          <ul>
-            <li>Home</li>
-            <li>About</li>
-          </ul>
-        </nav> */}
+        <nav className='
+          w-full 
+          py-2 
+
+          lg:px-8
+
+          bg-[#252525] 
+          fixed 
+          flex 
+          justify-between 
+          bottom-0
+          lg:top-0
+          lg:bottom-auto
+          lg:relative
+          lg:bg-transparent
+        '>
+          <span className='hidden lg:block'>LOGO</span>
+
+          <div className='flex justify-between w-full lg:w-auto'>
+            <Link className='m-auto text-[#fff] lg:mr-10' href="/">Home</Link>
+            <Link className='m-auto text-[#fff] lg:mr-10' href="/routines">Routines</Link>
+            <Link className='m-auto text-[#fff] lg:mr-10' href="/recipes">Recipes</Link>
+            <Link className='m-auto text-[#fff]' href="/recipes">Profile</Link>
+          </div>
+        </nav>
 
         <main className="w-full min-h-screen p-2 sm:p-8">
           {children}
