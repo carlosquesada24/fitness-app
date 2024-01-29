@@ -36,11 +36,13 @@ const exercises = [
 const formInitialState = {
     reps: 0,
     weight: 0,
+    weightUnit: "kg",
 }
 
 interface Form {
     reps: number;
     weight: number;
+    weightUnit: string;
 }
 
 const page = ({ params }: any) => {
@@ -119,6 +121,14 @@ const page = ({ params }: any) => {
                     value={(formValues as Form).weight}
                     onChange={handleInputChange}
                 />
+            </div>
+
+            <div className='my-5 flex justify-center flex-col'>
+                <label className='text-center text-[24px] mb-2' htmlFor="weightUnit">Weight Unit</label>
+                <select name="weightUnit" className='block p-2 bg-[#3d3d3d] w-full text-center' onChange={handleInputChange}>
+                    <option value="kg">kg</option>
+                    <option value="lbs">lbs</option>
+                </select>
             </div>
 
 
