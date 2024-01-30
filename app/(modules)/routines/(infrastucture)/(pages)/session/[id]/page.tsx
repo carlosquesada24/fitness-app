@@ -45,12 +45,12 @@ interface Form {
     weightUnit: string;
 }
 
-const page = ({ params }: any) => {
+const Page = ({ params }: any) => {
     const [currentExercise, setCurrentExercise] = useState(exercises[0])
     const [currentSet, setCurrentSet] = useState(1)
     const [currentExerciseIndex, setCurrentExerciseIndex] = useState(0);
 
-    const [formValues, handleInputChange] = useForm<Form>(formInitialState)
+    const {values: formValues, handleInputChange} = useForm(formInitialState)
 
     const allSets = currentExercise.sets
     const isCurrentSetLast = currentSet === allSets
@@ -176,4 +176,4 @@ const page = ({ params }: any) => {
     )
 }
 
-export default page
+export default Page

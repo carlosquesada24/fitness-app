@@ -10,6 +10,7 @@ const RoutinesGrid = () => {
           routinesList.map((routine, index) => {
             return (
               <Link
+                key={crypto.randomUUID()}
                 href={`/routines/${routine.id}`}
               >
               <article key={index} className='

@@ -14,7 +14,7 @@ const ExercisesGrid = (props: Props) => {
             <div className='w-full'>
                 {
                     props.exersisesList.map(exercise => (
-                        <div className='
+                        <div key={crypto.randomUUID()} className='
             p-4
             my-4
 
