@@ -56,16 +56,8 @@ const page = ({ params }: any) => {
     const isCurrentSetLast = currentSet === allSets
     const isLastExercise = currentExerciseIndex === exercises.length - 1
     const isNextDisabled =
-        (
-            (formValues as Form).reps === 0 ||
-            Number((formValues as Form).reps) === 0 ||
-            (formValues as Form).reps === null
-        ) ||
-        (
-            (formValues as Form).weight === 0 ||
-            Number((formValues as Form).weight) === 0 ||
-            (formValues as Form).weight === null
-        )
+        !((formValues as Form).reps > 0 && (formValues as Form).weight > 0)
+    
     const nextExercise = exercises[currentExerciseIndex + 1]
 
     const handleNextSet = () => {
@@ -133,13 +125,15 @@ const page = ({ params }: any) => {
 
 
             <button
+                style={{
+                    cursor: isNextDisabled ? "not-allowed" : "pointer",
+                }}
                 className={`
                     block 
                     font-bold 
                     ${isCurrentSetLast ? "hidden" : "block"}
-                    ${isNextDisabled ? "hover:cursor-not-allowed" : "hover:cursor-pointer"}
                     ${buttonStyles}
-
+                    ${isNextDisabled ? "bg-[#777777] hover:bg-[#777777]" : "bg-[#3d3d3d]"}
                     lg:m-auto
                 `}
                 disabled={isNextDisabled}
