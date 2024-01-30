@@ -81,43 +81,74 @@ const page = ({ params }: any) => {
         }
     }
 
+    const repsInputValue = 
+        (formValues as Form).reps === 0 
+            ? "" 
+            : (formValues as Form).reps
+    const weightInputValue = 
+        (formValues as Form).weight === 0 
+            ? "" 
+            : (formValues as Form).weight
+
+
+    const sessionPageStyles = {
+        pageTitle: `${HEADINGS.H2} font-bold`,
+        formGroup: "my-5 flex justify-center flex-col",
+        formLabel: "text-center text-[24px] mb-2",
+        formInput: "block p-2 bg-[#3d3d3d] w-full text-center",
+        nextExerciseSpan: `text-[18px] ${isCurrentSetLast && !isLastExercise ? "block" : "hidden"} lg:m-auto text-center`,
+        buttons: {
+            nextSet: `
+                block 
+                font-bold 
+                ${isCurrentSetLast ? "hidden" : "block"}
+                ${buttonStyles}
+                ${isNextDisabled ? "bg-[#777777] hover:bg-[#777777]" : "bg-[#3d3d3d]"}
+                lg:m-auto
+            `,
+            nextExercise: `
+                font-bold ${isCurrentSetLast && !isLastExercise ? "block" : "hidden"} ${buttonStyles} lg:m-auto`,
+            finish: `text-[18px] font-bold ${isCurrentSetLast && isLastExercise ? "block" : "hidden"} ${buttonStyles} lg:m-auto`,
+        }
+    }
+
     return (
         <>
-            <h2 className={`${HEADINGS.H2} font-bold`}>{currentExercise.name}</h2>
+            <h2 className={sessionPageStyles.pageTitle}>{currentExercise.name}</h2>
 
             <h4>Set {currentSet}/{allSets}</h4>
 
-            <div className='my-5 flex justify-center flex-col'>
-                <label className='text-center text-[24px] mb-2' htmlFor="reps">Reps</label>
+            <div className={sessionPageStyles.formGroup}>
+                <label className={sessionPageStyles.formLabel} htmlFor="reps">Reps</label>
                 <input
-                    className='block p-2 bg-[#3d3d3d] w-full text-center'
+                    className={sessionPageStyles.formInput}
                     name="reps"
                     type="text"
-                    value={(formValues as Form).reps}
+                    value={
+                        repsInputValue
+                    }
+                    placeholder='0'
                     onChange={handleInputChange}
                 />
             </div>
 
-            <div className='my-5 flex justify-center flex-col'>
-                <label className='text-center text-[24px] mb-2' htmlFor="weight">Weight</label>
+            <div className={sessionPageStyles.formGroup}>
+                <label className={sessionPageStyles.formLabel} htmlFor="weight">Weight</label>
                 <input
-                    className='
-                        block 
-                        text-[24px] 
-                        p-2 
-                        bg-[#3d3d3d] 
-                        w-full 
-                        text-center'
+                    className={sessionPageStyles.formInput}
                     name="weight"
+                    placeholder='0'
                     type="text"
-                    value={(formValues as Form).weight}
+                    value={
+                        weightInputValue
+                    }
                     onChange={handleInputChange}
                 />
             </div>
 
             <div className='my-5 flex justify-center flex-col'>
-                <label className='text-center text-[24px] mb-2' htmlFor="weightUnit">Weight Unit</label>
-                <select name="weightUnit" className='block p-2 bg-[#3d3d3d] w-full text-center' onChange={handleInputChange}>
+                <label className={sessionPageStyles.formLabel} htmlFor="weightUnit">Weight Unit</label>
+                <select name="weightUnit" className={sessionPageStyles.formInput} onChange={handleInputChange}>
                     <option value="kg">kg</option>
                     <option value="lbs">lbs</option>
                 </select>
@@ -128,25 +159,18 @@ const page = ({ params }: any) => {
                 style={{
                     cursor: isNextDisabled ? "not-allowed" : "pointer",
                 }}
-                className={`
-                    block 
-                    font-bold 
-                    ${isCurrentSetLast ? "hidden" : "block"}
-                    ${buttonStyles}
-                    ${isNextDisabled ? "bg-[#777777] hover:bg-[#777777]" : "bg-[#3d3d3d]"}
-                    lg:m-auto
-                `}
+                className={sessionPageStyles.buttons.nextSet}
                 disabled={isNextDisabled}
                 onClick={handleNextSet}
             >Next set</button>
-            <button className={`font-bold ${isCurrentSetLast && !isLastExercise ? "block" : "hidden"} ${buttonStyles}`} onClick={handleNextExercise}>Next exercise</button>
-            <span className={`inline text-[18px] ${isCurrentSetLast && !isLastExercise ? "block" : "hidden"}`}  >
+            <button className={sessionPageStyles.buttons.nextExercise} onClick={handleNextExercise}>Next exercise</button>
+            <span className={sessionPageStyles.nextExerciseSpan}  >
                 {nextExercise?.name ?? ""}
             </span>
 
             <Link
                 href={`/`}
-                className={`inline text-[18px] font-bold ${isCurrentSetLast && isLastExercise ? "block" : "hidden"} ${buttonStyles}`}
+                className={sessionPageStyles.buttons.finish}
             >Finish</Link>
         </>
     )
