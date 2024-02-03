@@ -1,14 +1,18 @@
-import React from 'react'
-import { routinesList } from '../../../domain/data'
+"use client"
+
+import React, { useContext } from 'react'
 import ExercisesGrid from '../../components/ui/ExercisesGrid/ExercisesGrid'
 import Link from 'next/link'
 import { buttonStyles } from '@/app/(styles)'
 import { HEADINGS } from '@/app/(styles)/variables'
+import { RoutinesContext, useRoutines } from '../../(hooks)/RoutinesContext'
 
 
-const page = ({ params }: any) => {
+const Page = ({ params }: any) => {
 
-  const routine = routinesList.find(routine => routine.id === params.id)
+  const {routinesList} = useContext(RoutinesContext)
+
+  const routine = routinesList?.find(routine => routine.id === params.id)
   const exercisesListFiltered = routine?.exercisesList ?? []
 
   return (
@@ -37,4 +41,4 @@ const page = ({ params }: any) => {
   )
 }
 
-export default page
+export default Page

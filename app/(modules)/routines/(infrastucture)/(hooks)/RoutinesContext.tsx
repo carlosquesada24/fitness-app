@@ -2,13 +2,7 @@
 
 import useLocalStorage from '@/app/(hooks)/useLocalStorage';
 import React, { createContext, useContext, useEffect, useState } from 'react';
-
-// Define the shape of the context
-interface Routine {
-  id: string;
-  name: string;
-  // Add other properties as needed
-}
+import { Routine } from '../../domain/entities';
 
 interface RoutinesContextData {
   routinesList: Routine[];
@@ -17,7 +11,7 @@ interface RoutinesContextData {
 }
 
 // Create the context
-const RoutinesContext = createContext<RoutinesContextData>({
+export const RoutinesContext = createContext<RoutinesContextData>({
     routinesList: [],
     addRoutine: () => {},
 });
