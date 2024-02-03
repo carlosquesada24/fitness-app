@@ -1,19 +1,23 @@
 import React from 'react'
-import { routinesList } from '@/app/(modules)/routines/domain/data'
+// import { routinesList } from '@/app/(modules)/routines/domain/data'
 import Link from 'next/link'
+import { useRoutines } from '../../../(hooks)/RoutinesContext'
 
 const RoutinesGrid = () => {
+
+ const {routinesList} = useRoutines()
+
   return (
     <div className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-12 w-full'>
         {
           routinesList.length > 0 ?
-          routinesList.map((routine, index) => {
+          routinesList.map((routine: any) => {
             return (
               <Link
                 key={crypto.randomUUID()}
                 href={`/routines/${routine.id}`}
               >
-              <article key={index} className='
+              <article key={crypto.randomUUID()} className='
                 p-4 
                 flex 
                 
