@@ -4,6 +4,7 @@ import {
 } from 'next/font/google'
 import './globals.css'
 import Link from 'next/link'
+import { RoutinesProvider } from './(modules)/routines/(infrastucture)/(hooks)/RoutinesContext'
 
 const inter = Archivo({ subsets: ['latin'] })
 
@@ -47,7 +48,9 @@ export default function RootLayout({
         </nav>
 
         <main className="w-full min-h-screen p-2 sm:p-8">
-          {children}
+          <RoutinesProvider>
+            {children}
+            </RoutinesProvider>
         </main>
       </body>
     </html>
