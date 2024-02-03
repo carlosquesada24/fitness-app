@@ -1,5 +1,6 @@
+"use client"
+
 import React from 'react'
-import { routinesList } from './domain/data'
 import RoutinesGrid from './(infrastucture)/components/ui/RoutinesGrid/RoutinesGrid'
 import { HEADINGS } from '@/app/(styles)/variables'
 
