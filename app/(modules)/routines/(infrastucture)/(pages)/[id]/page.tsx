@@ -11,10 +11,22 @@ import WorkoutSessionsGrid from '../../components/ui/WorkoutSessionsGrid/Workout
 
 const Page = ({ params }: any) => {
 
-  const { routinesList, sessionWorkout } = useContext(RoutinesContext)
+  const { routinesList } = useContext(RoutinesContext)
 
-  const routine = routinesList?.find(routine => routine.id === params.id)
-  const exercisesListFiltered = routine?.exercisesList ?? []
+  const workoutSessionLogsList = 
+    routinesList
+      ?.find(routine => routine.id === params.id)
+      ?.workoutSessionLogsList 
+      ?? []
+
+  const routine = 
+    routinesList
+      ?.find(routine => routine.id === params.id)
+
+  const exercisesListFiltered = 
+    routine
+      ?.exercisesList 
+      ?? []
 
   return (
     <>
@@ -39,7 +51,7 @@ const Page = ({ params }: any) => {
         exersisesList={exercisesListFiltered}
       />
 
-      <WorkoutSessionsGrid workoutSessionsList={sessionWorkout} />
+      <WorkoutSessionsGrid workoutSessionsList={workoutSessionLogsList} />
     </>
   )
 }
