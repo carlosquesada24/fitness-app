@@ -7,7 +7,7 @@ import { fitnessAppContextInitialState } from '../../domain/data';
 
 interface RoutinesContextData {
   routinesList: Routine[];
-  sessionWorkout: any;
+  workoutSession: any;
   addRoutine: (routine: Routine) => void;
   addWorkoutSession: (routineId: string, workoutSession: any) => void;
   // Add other actions as needed
@@ -16,7 +16,7 @@ interface RoutinesContextData {
 // Create the context
 export const RoutinesContext = createContext<RoutinesContextData>({
     routinesList: [],
-    sessionWorkout: {},
+    workoutSession: {},
     addRoutine: () => {},
     addWorkoutSession: () => {},
 });
@@ -24,7 +24,7 @@ export const RoutinesContext = createContext<RoutinesContextData>({
 // Create a provider component
 export const RoutinesProvider: React.FC<{children: any}> = ({ children }) => {
   const [routinesList, setRoutinesList] = useState<Routine[]>([]);
-  const [sessionWorkout, setSessionWorkout] = useState<any>({});
+  const [workoutSession, setworkoutSession] = useState<any>({});
 
   const {
     storedValue,
@@ -33,7 +33,7 @@ export const RoutinesProvider: React.FC<{children: any}> = ({ children }) => {
 
   useEffect(() => {
     setRoutinesList(storedValue.routinesList ?? []);
-    setSessionWorkout(storedValue.workoutSession ?? {});
+    setworkoutSession([]);
   }, []);
 
   const addRoutine = (routine: Routine) => {
@@ -45,7 +45,7 @@ export const RoutinesProvider: React.FC<{children: any}> = ({ children }) => {
   };
 
   const addWorkoutSession = (routineId: string, workoutSession: any) => {
-    setSessionWorkout(workoutSession);
+    setworkoutSession(workoutSession);
     setValue({
       ...storedValue,
       workoutSession: {
@@ -90,7 +90,7 @@ export const RoutinesProvider: React.FC<{children: any}> = ({ children }) => {
       routinesList, 
       addRoutine,
       addWorkoutSession, 
-      sessionWorkout 
+      workoutSession 
     }}>
       {children}
     </RoutinesContext.Provider>
