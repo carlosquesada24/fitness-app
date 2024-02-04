@@ -38,7 +38,7 @@ const WorkoutSessionsGrid = ({workoutSessionsList}: WorkoutSessionGridProps) => 
           </Link>
         )
       })
-      : <h3>There are no routines yet</h3>
+      : <h3>There are no workout logs yet</h3>
   }
 </div>
     </>
