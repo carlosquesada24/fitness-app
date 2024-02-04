@@ -15,10 +15,25 @@ export interface Routine {
     totalExercisesCount: number,
     estimatedTime: number
     exercisesList: Exercise[]
+    workoutSessionLogsList: WorkoutSessionLog[]
 }
 
 export interface Exercise {
     id: string
     name: string
     estimatedTime: number
+}
+
+export interface WorkoutSessionLog {
+    id: string;
+    date: string;
+    exercises: WorkoutSessionExercise[];
+}
+
+export interface WorkoutSessionExercise {
+    id: string;
+    name: string;
+    reps: number;
+    weight: number;
+    weightUnit: string;
 }
