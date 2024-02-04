@@ -18,6 +18,28 @@ export const routinesList: Routine[] = [
         name: "Standard push-ups",
         estimatedTime: 1
       }
+    ],
+    workoutSessionLogsList: [
+      {
+        id: "998898998",
+        date: "2024-02-03T18:25:14.113Z",
+        exercises: [
+          {
+            id: "d1a970ec-4f9a-44bb-b382-563f9946dc23",
+            name: "Standard push-ups",
+            reps: 10,
+            weight: 100,
+            weightUnit: "kg"
+          },
+          {
+            id: "bf48666a-6686-4457-bc57-f619e70089ec",
+        name: "Diamond push-ups",
+            reps: 10,
+            weight: 100,
+            weightUnit: "kg"
+          },
+        ]
+      }
     ]
   },
   {
@@ -36,6 +58,28 @@ export const routinesList: Routine[] = [
         id: "7f65183c-b28b-47d1-8000-4716c59fda2c",
         name: "Deadlift",
         estimatedTime: 1
+      }
+    ],
+    workoutSessionLogsList: [
+      {
+        id: "423312",
+        date: "2024-02-03T18:25:14.113Z",
+        exercises: [
+          {
+            id: "8da7ff15-f1e7-43d5-affa-56da5ce972b0",
+            name: "Standard pull-ups",
+            reps: 10,
+            weight: 100,
+            weightUnit: "kg"
+          },
+          {
+            id: "7f65183c-b28b-47d1-8000-4716c59fda2c",
+          name: "Deadlift",
+            reps: 10,
+            weight: 100,
+            weightUnit: "kg"
+          },
+        ]
       }
     ]
   },
@@ -56,6 +100,42 @@ export const routinesList: Routine[] = [
         name: "Triceps extensions",
         estimatedTime: 1
       }
+    ],
+    workoutSessionLogsList: [
+      {
+        id: "998898998",
+        date: "2024-02-03T18:25:14.113Z",
+        exercises: [
+          {
+            id: "3123123123",
+            name: "Standard bench press",
+            reps: 10,
+            weight: 100,
+            weightUnit: "kg"
+          },
+          {
+            id: "3123123123",
+            name: "Incline bench press",
+            reps: 10,
+            weight: 100,
+            weightUnit: "kg"
+          },
+          {
+            id: "3123123123",
+            name: "Pecs flys",
+            reps: 10,
+            weight: 100,
+            weightUnit: "kg"
+          },
+          {
+            id: "3123123123",
+            name: "Pecs extensions",
+            reps: 10,
+            weight: 100,
+            weightUnit: "kg"
+          }
+        ]
+      }
     ]
   },
   {
@@ -74,6 +154,29 @@ export const routinesList: Routine[] = [
         id: "b84c35c3-b489-4b00-8a46-e8ec8fb4c88e",
         name: "Lunges",
         estimatedTime: 1
+      }
+    ],
+    workoutSessionLogsList: [
+      {
+        id: "998898998",
+        date: "2024-02-03T18:25:14.113Z",
+        exercises: [
+          {
+            id: "57f3d30d-20dc-41d9-aca8-1f8405286942",
+        name: "Squats",
+            reps: 10,
+            weight: 100,
+            weightUnit: "kg"
+          },
+          {
+            id: "b84c35c3-b489-4b00-8a46-e8ec8fb4c88e",
+        name: "Lunges",
+            reps: 10,
+            weight: 100,
+            weightUnit: "kg"
+          },
+         
+        ]
       }
     ]
   },
