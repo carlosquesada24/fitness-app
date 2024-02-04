@@ -33,7 +33,7 @@ export const routinesList: Routine[] = [
           },
           {
             id: "bf48666a-6686-4457-bc57-f619e70089ec",
-        name: "Diamond push-ups",
+            name: "Diamond push-ups",
             reps: 10,
             weight: 100,
             weightUnit: "kg"
@@ -74,7 +74,7 @@ export const routinesList: Routine[] = [
           },
           {
             id: "7f65183c-b28b-47d1-8000-4716c59fda2c",
-          name: "Deadlift",
+            name: "Deadlift",
             reps: 10,
             weight: 100,
             weightUnit: "kg"
@@ -163,19 +163,19 @@ export const routinesList: Routine[] = [
         exercises: [
           {
             id: "57f3d30d-20dc-41d9-aca8-1f8405286942",
-        name: "Squats",
+            name: "Squats",
             reps: 10,
             weight: 100,
             weightUnit: "kg"
           },
           {
             id: "b84c35c3-b489-4b00-8a46-e8ec8fb4c88e",
-        name: "Lunges",
+            name: "Lunges",
             reps: 10,
             weight: 100,
             weightUnit: "kg"
           },
-         
+
         ]
       }
     ]
@@ -245,7 +245,7 @@ export const exercisesList: Exercise[] = [
   }
 ]
 
-export const fitnessAppContextInitialState = { 
+export const fitnessAppContextInitialState = {
   routinesList: [
     {
       id: 'c1024c29-cca3-48c2-87ea-408946301c44',
@@ -263,6 +263,28 @@ export const fitnessAppContextInitialState = {
           id: "d1a970ec-4f9a-44bb-b382-563f9946dc23",
           name: "Standard push-ups",
           estimatedTime: 1
+        }
+      ],
+      workoutSessionLogsList: [
+        {
+          id: "998898998",
+          date: "2024-02-03T18:25:14.113Z",
+          exercises: [
+            {
+              id: "d1a970ec-4f9a-44bb-b382-563f9946dc23",
+              name: "Standard push-ups",
+              reps: 10,
+              weight: 100,
+              weightUnit: "kg"
+            },
+            {
+              id: "bf48666a-6686-4457-bc57-f619e70089ec",
+              name: "Diamond push-ups",
+              reps: 10,
+              weight: 100,
+              weightUnit: "kg"
+            },
+          ]
         }
       ]
     },
@@ -283,6 +305,28 @@ export const fitnessAppContextInitialState = {
           name: "Deadlift",
           estimatedTime: 1
         }
+      ],
+      workoutSessionLogsList: [
+        {
+          id: "423312",
+          date: "2024-02-03T18:25:14.113Z",
+          exercises: [
+            {
+              id: "8da7ff15-f1e7-43d5-affa-56da5ce972b0",
+              name: "Standard pull-ups",
+              reps: 10,
+              weight: 100,
+              weightUnit: "kg"
+            },
+            {
+              id: "7f65183c-b28b-47d1-8000-4716c59fda2c",
+              name: "Deadlift",
+              reps: 10,
+              weight: 100,
+              weightUnit: "kg"
+            },
+          ]
+        }
       ]
     },
     {
@@ -302,6 +346,28 @@ export const fitnessAppContextInitialState = {
           name: "Triceps extensions",
           estimatedTime: 1
         }
+      ],
+      workoutSessionLogsList: [
+        {
+          id: "998898998",
+          date: "2024-02-03T18:25:14.113Z",
+          exercises: [
+            {
+              id: "f71fa536-5bb4-4c2c-9ec1-3d8075a64cfd",
+              name: "Biceps curl",
+              reps: 10,
+              weight: 100,
+              weightUnit: "kg"
+            },
+            {
+              id: "73dfaa6a-80b2-48cd-a707-3abca6e6d431",
+              name: "Triceps extensions",
+              reps: 10,
+              weight: 100,
+              weightUnit: "kg"
+            }
+          ]
+        }
       ]
     },
     {
@@ -320,6 +386,29 @@ export const fitnessAppContextInitialState = {
           id: "b84c35c3-b489-4b00-8a46-e8ec8fb4c88e",
           name: "Lunges",
           estimatedTime: 1
+        }
+      ],
+      workoutSessionLogsList: [
+        {
+          id: "998898998",
+          date: "2024-02-03T18:25:14.113Z",
+          exercises: [
+            {
+              id: "57f3d30d-20dc-41d9-aca8-1f8405286942",
+              name: "Squats",
+              reps: 10,
+              weight: 100,
+              weightUnit: "kg"
+            },
+            {
+              id: "b84c35c3-b489-4b00-8a46-e8ec8fb4c88e",
+              name: "Lunges",
+              reps: 10,
+              weight: 100,
+              weightUnit: "kg"
+            },
+
+          ]
         }
       ]
     },
