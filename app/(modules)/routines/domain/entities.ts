@@ -33,7 +33,17 @@ export interface WorkoutSessionLog {
 export interface WorkoutSessionExercise {
     id: string;
     name: string;
+    sets: WorkoutSessionSet[]
+}
+
+interface WorkoutSessionSet {
+    number: number;
     reps: number;
     weight: number;
     weightUnit: string;
+}
+
+export interface FitnessAppContext {
+    routinesList: Routine[]
+    recipesList: any[]
 }
