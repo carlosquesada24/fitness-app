@@ -495,6 +495,114 @@ export const fitnessAppContextInitialState: FitnessAppContext = {
               }]
             }
           ]
+        },
+        {
+          id: "998898998",
+          date: "2024-02-01T18:25:14.113Z",
+          exercises: [
+            {
+              id: "f71fa536-5bb4-4c2c-9ec1-3d8075a64cfd",
+              name: "Biceps curl",
+              sets: [{
+                number: 1,
+                reps: 10,
+                weight: 1000,
+                weightUnit: "kg",
+              }, {
+                number: 2,
+                reps: 10,
+                weight: 1000,
+                weightUnit: "kg",
+              }]
+            },
+            {
+              id: "73dfaa6a-80b2-48cd-a707-3abca6e6d431",
+              name: "Triceps extensions",
+              sets: [{
+                number: 1,
+                reps: 10,
+                weight: 1000,
+                weightUnit: "kg",
+              }, {
+                number: 2,
+                reps: 10,
+                weight: 1000,
+                weightUnit: "kg",
+              }]
+            }
+          ]
+        },
+        {
+          id: "998898998",
+          date: "2024-01-28T18:25:14.113Z",
+          exercises: [
+            {
+              id: "f71fa536-5bb4-4c2c-9ec1-3d8075a64cfd",
+              name: "Biceps curl",
+              sets: [{
+                number: 1,
+                reps: 10,
+                weight: 1000,
+                weightUnit: "kg",
+              }, {
+                number: 2,
+                reps: 10,
+                weight: 1000,
+                weightUnit: "kg",
+              }]
+            },
+            {
+              id: "73dfaa6a-80b2-48cd-a707-3abca6e6d431",
+              name: "Triceps extensions",
+              sets: [{
+                number: 1,
+                reps: 10,
+                weight: 1000,
+                weightUnit: "kg",
+              }, {
+                number: 2,
+                reps: 10,
+                weight: 1000,
+                weightUnit: "kg",
+              }]
+            }
+          ]
+        },
+        {
+          id: "998898998",
+          date: "2024-01-22T18:25:14.113Z",
+          exercises: [
+            {
+              id: "f71fa536-5bb4-4c2c-9ec1-3d8075a64cfd",
+              name: "Biceps curl",
+              sets: [{
+                number: 1,
+                reps: 10,
+                weight: 1000,
+                weightUnit: "kg",
+              }, {
+                number: 2,
+                reps: 10,
+                weight: 1000,
+                weightUnit: "kg",
+              }]
+            },
+            {
+              id: "73dfaa6a-80b2-48cd-a707-3abca6e6d431",
+              name: "Triceps extensions",
+              sets: [{
+                number: 1,
+                reps: 10,
+                weight: 1000,
+                weightUnit: "kg",
+              }, {
+                number: 2,
+                reps: 10,
+                weight: 1000,
+                weightUnit: "kg",
+              }]
+            }
+          ]
         }
       ]
     },
@@ -553,7 +661,44 @@ export const fitnessAppContextInitialState: FitnessAppContext = {
             },
 
           ]
-        }
+        },
+        {
+          id: "998898998",
+          date: "2024-02-01T18:25:14.113Z",
+          exercises: [
+            {
+              id: "57f3d30d-20dc-41d9-aca8-1f8405286942",
+              name: "Squats",
+              sets: [{
+                number: 1,
+                reps: 10,
+                weight: 1000,
+                weightUnit: "kg",
+              }, {
+                number: 2,
+                reps: 10,
+                weight: 1000,
+                weightUnit: "kg",
+              }]
+            },
+            {
+              id: "b84c35c3-b489-4b00-8a46-e8ec8fb4c88e",
+              name: "Lunges",
+              sets: [{
+                number: 1,
+                reps: 10,
+                weight: 1000,
+                weightUnit: "kg",
+              }, {
+                number: 2,
+                reps: 10,
+                weight: 1000,
+                weightUnit: "kg",
+              }]
+            },
+
+          ]
+        },
       ]
     },
   ],
