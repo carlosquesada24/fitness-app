@@ -15,21 +15,22 @@ interface RoutinesContextData {
 
 // Create the context
 export const RoutinesContext = createContext<RoutinesContextData>({
-    routinesList: [],
-    workoutSession: {},
-    addRoutine: () => {},
-    addWorkoutSession: () => {},
+  routinesList: [],
+  workoutSession: {},
+  addRoutine: () => { },
+  addWorkoutSession: () => { },
 });
 
 // Create a provider component
-export const RoutinesProvider: React.FC<{children: any}> = ({ children }) => {
+export const RoutinesProvider: React.FC<{ children: any, params: any }> = ({ children, params }) => {
   const [routinesList, setRoutinesList] = useState<Routine[]>([]);
   const [workoutSession, setworkoutSession] = useState<any>({});
+  const [currentRoutine, setCurrentRoutine] = useState<Routine | null>(null);
 
   const {
     storedValue,
     setValue
-} = useLocalStorage("fitness-app", fitnessAppContextInitialState)
+  } = useLocalStorage("fitness-app", fitnessAppContextInitialState)
 
   useEffect(() => {
     setRoutinesList(storedValue.routinesList ?? []);
@@ -46,51 +47,69 @@ export const RoutinesProvider: React.FC<{children: any}> = ({ children }) => {
 
   const addWorkoutSession = (routineId: string, workoutSession: any) => {
     setworkoutSession(workoutSession);
+  
+    const newWorkoutSessionLog = {
+      id: crypto.randomUUID(),
+      date: new Date().toISOString(),
+      exercises: [
+        // Add your new exercises here
+        {
+          id: "d1a970ec-4f9a-44bb-b382-563f9946dc23",
+          name: "Standard push-ups",
+          sets: [{
+            number: 1,
+            reps: 12,
+            weight: 777,
+            weightUnit: "kg",
+          }, {
+            number: 2,
+            reps: 12,
+            weight: 777,
+            weightUnit: "kg",
+          }]
+        },
+        {
+          id: "bf48666a-6686-4457-bc57-f619e70089ec",
+          name: "Diamond push-ups",
+          sets: [{
+            number: 1,
+            reps: 15,
+            weight: 777,
+            weightUnit: "kg",
+          }, {
+            number: 2,
+            reps: 15,
+            weight: 777,
+            weightUnit: "kg",
+          }]
+        },
+      ],
+    };
+
+    const newRoutinesList = routinesList.map(routine => 
+      routine.id === routineId 
+        ? { 
+            ...routine, 
+            workoutSessionLogsList: [
+              ...routine.workoutSessionLogsList, 
+              newWorkoutSessionLog
+            ] 
+          }
+        : routine  
+    );
+
     setValue({
       ...storedValue,
-      workoutSession: {
-        id: "3123123123",
-        date: new Date().toISOString(),
-        exercises: [
-          {
-            id: "3123123123",
-            name: "Standard bench press",
-            reps: 10,
-            weight: 100,
-            weightUnit: "kg",
-          },
-          {
-            id: "3123123123",
-            name: "Incline bench press",
-            reps: 10,
-            weight: 100,
-            weightUnit: "kg",
-          },
-          {
-            id: "3123123123",
-            name: "Pecs flys",
-            reps: 10,
-            weight: 100,
-            weightUnit: "kg",
-          },
-          {
-            id: "3123123123",
-            name: "Pecs extensions",
-            reps: 10,
-            weight: 100,
-            weightUnit: "kg",
-          },
-        ],
-      },
+      routinesList: newRoutinesList
     })
   }
 
   return (
-    <RoutinesContext.Provider value={{ 
-      routinesList, 
+    <RoutinesContext.Provider value={{
+      routinesList,
       addRoutine,
-      addWorkoutSession, 
-      workoutSession 
+      addWorkoutSession,
+      workoutSession
     }}>
       {children}
     </RoutinesContext.Provider>
