@@ -7,6 +7,7 @@ import { fitnessAppContextInitialState } from '../../domain/data';
 
 interface RoutinesContextData {
   routinesList: Routine[];
+  setRoutinesList: (routine: any) => void;
   workoutSession: any;
   addRoutine: (routine: Routine) => void;
   addWorkoutSession: (routineId: string, workoutSession: any) => void;
@@ -16,6 +17,7 @@ interface RoutinesContextData {
 // Create the context
 export const RoutinesContext = createContext<RoutinesContextData>({
   routinesList: [],
+  setRoutinesList: () => { },
   workoutSession: {},
   addRoutine: () => { },
   addWorkoutSession: () => { },
@@ -107,6 +109,7 @@ export const RoutinesProvider: React.FC<{ children: any, params: any }> = ({ chi
   return (
     <RoutinesContext.Provider value={{
       routinesList,
+      setRoutinesList,
       addRoutine,
       addWorkoutSession,
       workoutSession
