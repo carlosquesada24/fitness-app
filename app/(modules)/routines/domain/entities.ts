@@ -8,6 +8,16 @@ interface RoutineTest {
     updated_at: string;
 }
 
+export const ROUTINE_DEFAULT_VALUE: Routine = {
+    id: "",
+    name: "",
+    description: "",
+    totalExercisesCount: 0,
+    estimatedTime: 0,
+    exercisesList: [],
+    workoutSessionLogsList: [],
+}
+
 export interface Routine {
     id: string,
     name: string,
@@ -22,6 +32,7 @@ export interface Exercise {
     id: string
     name: string
     estimatedTime: number
+    sets: number
 }
 
 export interface WorkoutSessionLog {

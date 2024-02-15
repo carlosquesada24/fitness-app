@@ -4,9 +4,9 @@ import { useForm } from '@/app/(hooks)/useForm';
 import { buttonStyles } from '@/app/(styles)';
 import { HEADINGS } from '@/app/(styles)/variables';
 import Link from 'next/link';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useRoutines } from '../../../../(hooks)/RoutinesContext';
-import { WorkoutSessionLog } from '@/app/(modules)/routines/domain/entities';
+import { ROUTINE_DEFAULT_VALUE, WorkoutSessionLog } from '@/app/(modules)/routines/domain/entities';
 
 const exercises = [
     {
@@ -79,31 +79,56 @@ const workoutSessionInitialState: WorkoutSessionLog = {
 
 
 const Page = ({ params }: any) => {
-    const [currentExercise, setCurrentExercise] = useState(exercises[0])
+    const { 
+        addWorkoutSession, 
+        routinesList, 
+        setRoutinesList 
+    } = useRoutines()
+
+    const [routine, setRoutine] = useState(
+        () => routinesList
+                .find(
+                    (routine: any) => routine.id === params.id
+                ) 
+                ?? { id: "", exercisesList: [] }
+    )
+
+    const [currentExercise, setCurrentExercise] = useState(
+        routine?.exercisesList[0] ?? { sets: 0, name: "", id: "", estimatedTime: 0 }
+    )
     const [currentSet, setCurrentSet] = useState(1)
     const [currentExerciseIndex, setCurrentExerciseIndex] = useState(0);
     const [workoutSessionT, setWorkoutSession] = useState(workoutSessionInitialState)
 
-    const { addWorkoutSession, routinesList, setRoutinesList } = useRoutines()
+    useEffect(() => {
+        
+        setRoutine(
+            routinesList.find(
+                (routine: any) => routine.id === params.id
+            ) ?? ROUTINE_DEFAULT_VALUE
+        )
+
+        setCurrentExercise(routine?.exercisesList[0] ?? { sets: 0, name: "", id: "", estimatedTime: 0 })
+    }, [routine])
+
     const { values: formValues, handleInputChange } = useForm(formInitialState)
 
     const allExercisesList = routinesList.map(routine => routine.exercisesList).flat()
 
     const allSets = currentExercise.sets
     const isCurrentSetLast = currentSet === allSets
-    const isLastExercise = currentExerciseIndex === exercises.length - 1
+    const isLastExercise = currentExerciseIndex === routine?.exercisesList.length - 1
     const isNextDisabled =
         !((formValues as Form).reps > 0 && (formValues as Form).weight > 0)
 
-    const nextExercise = exercises[currentExerciseIndex + 1]
-
-    const routine = routinesList.find((routine: any) => routine.id === params.id) ?? { id: "", exercisesList: [] }
+    const nextExercise = routine?.exercisesList[currentExerciseIndex + 1]
 
     const exerciseIndex = routine?.exercisesList.findIndex(
         (exercise: any) => {
             return exercise.id === currentExercise.id
         }
     );
+
     const handleNextSet = () => {
         if (currentSet < allSets) {
             setCurrentSet(currentSet + 1)
@@ -230,9 +255,9 @@ const Page = ({ params }: any) => {
                             ...routine,
                             workoutSessionLogsList: routine.workoutSessionLogsList.map(workoutSessionNested => {
                                 if (workoutSessionNested.id === workoutSessionId) {
-    
+
                                     const exerciseExists = workoutSessionNested.exercises.some(exercise => exercise.id === exerciseId);
-    
+
                                     if (exerciseExists) {
                                         return {
                                             ...workoutSessionNested,
@@ -275,7 +300,7 @@ const Page = ({ params }: any) => {
                                 }]
                             }]
                         }
-                    }                    
+                    }
                 } else {
                     return routine;
                 }
@@ -284,7 +309,7 @@ const Page = ({ params }: any) => {
             setRoutinesList(newRoutinesList)
 
             setCurrentExerciseIndex(nextExerciseIndex);
-            setCurrentExercise(exercises[nextExerciseIndex]);
+            setCurrentExercise(routine?.exercisesList[nextExerciseIndex]);
         }
     }
 

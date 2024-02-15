@@ -11,12 +11,14 @@ export const routinesList: Routine[] = [
       {
         id: "bf48666a-6686-4457-bc57-f619e70089ec",
         name: "Diamond push-ups",
-        estimatedTime: 1
+        estimatedTime: 1,
+        sets: 4
       },
       {
         id: "d1a970ec-4f9a-44bb-b382-563f9946dc23",
         name: "Standard push-ups",
-        estimatedTime: 1
+        estimatedTime: 1,
+        sets: 4
       }
     ],
     workoutSessionLogsList: [
@@ -68,12 +70,14 @@ export const routinesList: Routine[] = [
       {
         id: "8da7ff15-f1e7-43d5-affa-56da5ce972b0",
         name: "Standard pull-ups",
-        estimatedTime: 1
+        estimatedTime: 1,
+        sets: 4
       },
       {
         id: "7f65183c-b28b-47d1-8000-4716c59fda2c",
         name: "Deadlift",
-        estimatedTime: 1
+        estimatedTime: 1,
+        sets: 4
       }
     ],
     workoutSessionLogsList: [
@@ -125,12 +129,14 @@ export const routinesList: Routine[] = [
       {
         id: "f71fa536-5bb4-4c2c-9ec1-3d8075a64cfd",
         name: "Biceps curl",
-        estimatedTime: 1
+        estimatedTime: 1,
+        sets: 4
       },
       {
         id: "73dfaa6a-80b2-48cd-a707-3abca6e6d431",
         name: "Triceps extensions",
-        estimatedTime: 1
+        estimatedTime: 1,
+        sets: 4
       }
     ],
     workoutSessionLogsList: [
@@ -212,12 +218,14 @@ export const routinesList: Routine[] = [
       {
         id: "57f3d30d-20dc-41d9-aca8-1f8405286942",
         name: "Squats",
-        estimatedTime: 1
+        estimatedTime: 1,
+        sets: 4
       },
       {
         id: "b84c35c3-b489-4b00-8a46-e8ec8fb4c88e",
         name: "Lunges",
-        estimatedTime: 1
+        estimatedTime: 1,
+        sets: 4
       }
     ],
     workoutSessionLogsList: [
@@ -286,42 +294,50 @@ export const exercisesList: Exercise[] = [
   {
     id: "8da7ff15-f1e7-43d5-affa-56da5ce972b0",
     name: "Standard pull-ups",
-    estimatedTime: 1
+    estimatedTime: 1,
+    sets: 4
   },
   {
     id: "7f65183c-b28b-47d1-8000-4716c59fda2c",
     name: "Deadlift",
-    estimatedTime: 1
+    estimatedTime: 1,
+    sets: 4
   },
   {
     id: "f71fa536-5bb4-4c2c-9ec1-3d8075a64cfd",
     name: "Biceps curl",
-    estimatedTime: 1
+    estimatedTime: 1,
+    sets: 4
   },
   {
     id: "73dfaa6a-80b2-48cd-a707-3abca6e6d431",
     name: "Triceps extensions",
-    estimatedTime: 1
+    estimatedTime: 1,
+    sets: 4
   },
   {
     id: "57f3d30d-20dc-41d9-aca8-1f8405286942",
     name: "Squats",
-    estimatedTime: 1
+    estimatedTime: 1,
+    sets: 4
   },
   {
     id: "b84c35c3-b489-4b00-8a46-e8ec8fb4c88e",
     name: "Lunges",
-    estimatedTime: 1
+    estimatedTime: 1,
+    sets: 4
   },
   {
     id: "bf48666a-6686-4457-bc57-f619e70089ec",
     name: "Diamond push-ups",
-    estimatedTime: 1
+    estimatedTime: 1,
+    sets: 4
   },
   {
     id: "d1a970ec-4f9a-44bb-b382-563f9946dc23",
     name: "Standard push-ups",
-    estimatedTime: 1
+    estimatedTime: 1,
+    sets: 4
   }
 ]
 
@@ -337,12 +353,14 @@ export const fitnessAppContextInitialState: FitnessAppContext = {
         {
           id: "bf48666a-6686-4457-bc57-f619e70089ec",
           name: "Diamond push-ups",
-          estimatedTime: 1
+          estimatedTime: 1,
+          sets: 4
         },
         {
           id: "d1a970ec-4f9a-44bb-b382-563f9946dc23",
           name: "Standard push-ups",
-          estimatedTime: 1
+          estimatedTime: 1,
+          sets: 4
         }
       ],
       workoutSessionLogsList: [
@@ -394,12 +412,14 @@ export const fitnessAppContextInitialState: FitnessAppContext = {
         {
           id: "8da7ff15-f1e7-43d5-affa-56da5ce972b0",
           name: "Standard pull-ups",
-          estimatedTime: 1
+          estimatedTime: 1,
+          sets: 4
         },
         {
           id: "7f65183c-b28b-47d1-8000-4716c59fda2c",
           name: "Deadlift",
-          estimatedTime: 1
+          estimatedTime: 1,
+          sets: 4
         }
       ],
       workoutSessionLogsList: [
@@ -451,12 +471,14 @@ export const fitnessAppContextInitialState: FitnessAppContext = {
         {
           id: "f71fa536-5bb4-4c2c-9ec1-3d8075a64cfd",
           name: "Biceps curl",
-          estimatedTime: 1
+          estimatedTime: 1,
+          sets: 4
         },
         {
           id: "73dfaa6a-80b2-48cd-a707-3abca6e6d431",
           name: "Triceps extensions",
-          estimatedTime: 1
+          estimatedTime: 1,
+          sets: 4
         }
       ],
       workoutSessionLogsList: [
@@ -616,12 +638,14 @@ export const fitnessAppContextInitialState: FitnessAppContext = {
         {
           id: "57f3d30d-20dc-41d9-aca8-1f8405286942",
           name: "Squats",
-          estimatedTime: 1
+          estimatedTime: 1,
+          sets: 4
         },
         {
           id: "b84c35c3-b489-4b00-8a46-e8ec8fb4c88e",
           name: "Lunges",
-          estimatedTime: 1
+          estimatedTime: 1,
+          sets: 4
         }
       ],
       workoutSessionLogsList: [

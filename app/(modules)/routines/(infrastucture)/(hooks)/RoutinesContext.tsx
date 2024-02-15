@@ -27,7 +27,6 @@ export const RoutinesContext = createContext<RoutinesContextData>({
 export const RoutinesProvider: React.FC<{ children: any, params: any }> = ({ children, params }) => {
   const [routinesList, setRoutinesList] = useState<Routine[]>([]);
   const [workoutSession, setworkoutSession] = useState<any>({});
-  const [currentRoutine, setCurrentRoutine] = useState<Routine | null>(null);
 
   const {
     storedValue,
@@ -49,7 +48,7 @@ export const RoutinesProvider: React.FC<{ children: any, params: any }> = ({ chi
 
   const addWorkoutSession = (routineId: string, workoutSession: any) => {
     setworkoutSession(workoutSession);
-  
+
     const newWorkoutSessionLog = {
       id: crypto.randomUUID(),
       date: new Date().toISOString(),
@@ -88,16 +87,16 @@ export const RoutinesProvider: React.FC<{ children: any, params: any }> = ({ chi
       ],
     };
 
-    const newRoutinesList = routinesList.map(routine => 
-      routine.id === routineId 
-        ? { 
-            ...routine, 
-            workoutSessionLogsList: [
-              ...routine.workoutSessionLogsList, 
-              newWorkoutSessionLog
-            ] 
-          }
-        : routine  
+    const newRoutinesList = routinesList.map(routine =>
+      routine.id === routineId
+        ? {
+          ...routine,
+          workoutSessionLogsList: [
+            ...routine.workoutSessionLogsList,
+            newWorkoutSessionLog
+          ]
+        }
+        : routine
     );
 
     setValue({
