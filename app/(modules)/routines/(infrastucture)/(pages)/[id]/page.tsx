@@ -34,7 +34,7 @@ const Page = ({ params }: any) => {
 
       <div className='mb-12'>
         <Link
-          href={`/routines/session/${crypto.randomUUID()}`}
+          href={`/routines/${params.id}/session/${crypto.randomUUID()}`}
           className={`
             ${buttonStyles}
             mr-5
