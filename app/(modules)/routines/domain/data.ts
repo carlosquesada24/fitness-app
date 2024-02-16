@@ -1,4 +1,4 @@
-import { Exercise, FitnessAppContext, Routine } from "./entities"
+import { Exercise, FitnessAppContext, Routine, SessionForm, WorkoutSessionLog } from "./entities"
 
 export const routinesList: Routine[] = [
   {
@@ -728,3 +728,50 @@ export const fitnessAppContextInitialState: FitnessAppContext = {
   ],
   recipesList: []
 }
+
+export const fitnessAppContextMinimalState: FitnessAppContext = {
+  "routinesList": [
+    {
+      "id": "c1024c29-cca3-48c2-87ea-408946301c44",
+      "name": "Chest",
+      "description": "Description 1",
+      "totalExercisesCount": 3,
+      "estimatedTime": 35,
+      "exercisesList": [
+        {
+          "id": "bf48666a-6686-4457-bc57-f619e70089ec",
+          "name": "Diamond push-ups",
+          "estimatedTime": 1,
+          "sets": 4
+        },
+        {
+          "id": "d1a970ec-4f9a-44bb-b382-563f9946dc23",
+          "name": "Standard push-ups",
+          "estimatedTime": 1,
+          "sets": 4
+        }
+      ],
+      "workoutSessionLogsList": []
+    },
+  ],
+  "recipesList": []
+}
+
+export const fitnessAppContextEmptyState: FitnessAppContext = {
+  "routinesList": [],
+  "recipesList": []
+}
+
+export const sessionFormInitialState: SessionForm = {
+  reps: 0,
+  weight: 0,
+  weightUnit: "kg",
+}
+
+export const workoutSessionInitialState: WorkoutSessionLog = {
+  id: crypto.randomUUID(),
+  date: new Date().toISOString(),
+  exercises: [],
+}
+
+export const INITIAL_SET = 1

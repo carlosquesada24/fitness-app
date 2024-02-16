@@ -18,6 +18,13 @@ export const ROUTINE_DEFAULT_VALUE: Routine = {
     workoutSessionLogsList: [],
 }
 
+export const EXERCISE_DEFAULT_VALUE: Exercise = {
+    id: "",
+    name: "",
+    estimatedTime: 0,
+    sets: 0,
+}
+
 export interface Routine {
     id: string,
     name: string,
@@ -58,3 +65,9 @@ export interface FitnessAppContext {
     routinesList: Routine[]
     recipesList: any[]
 }
+
+export interface SessionForm {
+    reps: number;
+    weight: number;
+    weightUnit: string;
+  }
