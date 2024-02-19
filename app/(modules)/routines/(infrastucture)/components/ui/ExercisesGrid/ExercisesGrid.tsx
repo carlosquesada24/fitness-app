@@ -1,6 +1,6 @@
 import { routine } from '@/app/(modules)/routines/domain/data'
 import { Exercise } from '@/app/(modules)/routines/domain/entities'
-import { HEADINGS } from '@/app/(styles)/variables'
+import { COLORS, HEADINGS } from '@/app/(styles)/variables'
 import React from 'react'
 
 interface Props {
@@ -14,9 +14,11 @@ const ExercisesGrid = (props: Props) => {
             <div className='w-full'>
                 {
                     props.exersisesList.map(exercise => (
-                        <div key={crypto.randomUUID()} className='
+                        <div key={crypto.randomUUID()} className={`
             p-4
-            my-4
+            my-2
+
+            bg-[${COLORS.DARK_GRAY}]
 
             flex 
             justify-between
@@ -24,7 +26,7 @@ const ExercisesGrid = (props: Props) => {
             hover:bg-[#2e2e2e]
             transition
             duration-350
-          '>
+            `}>
                             <h3 className='inline'>{exercise.name}</h3>
                             <span>{exercise.estimatedTime} min</span>
                         </div>

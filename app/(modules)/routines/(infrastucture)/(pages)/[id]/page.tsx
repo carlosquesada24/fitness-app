@@ -4,7 +4,7 @@ import React, { useContext } from 'react'
 import ExercisesGrid from '../../components/ui/ExercisesGrid/ExercisesGrid'
 import Link from 'next/link'
 import { buttonStyles } from '@/app/(styles)'
-import { HEADINGS } from '@/app/(styles)/variables'
+import { COLORS, HEADINGS } from '@/app/(styles)/variables'
 import { RoutinesContext, useRoutines } from '../../(hooks)/RoutinesContext'
 import WorkoutSessionsGrid from '../../components/ui/WorkoutSessionsGrid/WorkoutSessionsGrid'
 
@@ -13,20 +13,20 @@ const Page = ({ params }: any) => {
 
   const { routinesList } = useContext(RoutinesContext)
 
-  const workoutSessionLogsList = 
+  const workoutSessionLogsList =
     routinesList
       ?.find(routine => routine.id === params.id)
-      ?.workoutSessionLogsList 
-      ?? []
+      ?.workoutSessionLogsList
+    ?? []
 
-  const routine = 
+  const routine =
     routinesList
       ?.find(routine => routine.id === params.id)
 
-  const exercisesListFiltered = 
+  const exercisesListFiltered =
     routine
-      ?.exercisesList 
-      ?? []
+      ?.exercisesList
+    ?? []
 
   return (
     <>
