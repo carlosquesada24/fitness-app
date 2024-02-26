@@ -156,6 +156,7 @@ const Page = ({ params }: any) => {
         formInput: "block p-2 bg-[#3d3d3d] w-full text-center",
         nextExerciseSpan: `text-[18px] ${isCurrentSetLast && !isLastExercise ? "block" : "hidden"} lg:m-auto text-center`,
         buttons: {
+            container: "w-[100%] flex justify-center items-center flex-col text-center",
             nextSet: `
                 block 
                 font-bold 
@@ -166,7 +167,19 @@ const Page = ({ params }: any) => {
             `,
             nextExercise: `
                 font-bold ${isCurrentSetLast && !isLastExercise ? "block" : "hidden"} ${buttonStyles} lg:m-auto`,
-            finish: `text-[18px] font-bold ${isCurrentSetLast && isLastExercise ? "block" : "hidden"} ${buttonStyles} lg:m-auto`,
+            finish: `
+                text-[18px] 
+                font-bold 
+                ${
+                    isCurrentSetLast && 
+                    isLastExercise 
+                        ? "block" 
+                        : "hidden"
+                } 
+                ${buttonStyles} 
+                lg:m-auto
+                width-[50%]
+            `,
         }
     }
 
@@ -255,24 +268,27 @@ const Page = ({ params }: any) => {
             </div>
 
 
-            <button
-                style={{
-                    cursor: isNextDisabled ? "not-allowed" : "pointer",
-                }}
-                className={sessionPageStyles.buttons.nextSet}
-                disabled={isNextDisabled}
-                onClick={handleNextSet}
-            >Next set</button>
-            <button className={sessionPageStyles.buttons.nextExercise} onClick={handleNextExercise}>Next exercise</button>
-            <span className={sessionPageStyles.nextExerciseSpan}  >
-                {nextExercise?.name ?? ""}
-            </span>
+            
+            <div className={sessionPageStyles.buttons.container}>
+                <button
+                    style={{
+                        cursor: isNextDisabled ? "not-allowed" : "pointer",
+                    }}
+                    className={sessionPageStyles.buttons.nextSet}
+                    disabled={isNextDisabled}
+                    onClick={handleNextSet}
+                >Next set</button>
+                <button className={sessionPageStyles.buttons.nextExercise} onClick={handleNextExercise}>Next exercise</button>
+                <span className={sessionPageStyles.nextExerciseSpan}  >
+                    {nextExercise?.name ?? ""}
+                </span>
 
-            <Link
-                href={`/`}
-                className={sessionPageStyles.buttons.finish}
-                onClick={handleFinish}
-            >Finish</Link>
+                <Link
+                    href={`/`}
+                    className={sessionPageStyles.buttons.finish}
+                    onClick={handleFinish}
+                >Finish</Link>
+            </div>
         </>
     )
 }

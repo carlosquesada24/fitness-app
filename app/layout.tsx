@@ -1,12 +1,13 @@
 import type { Metadata } from 'next'
 import { 
   Archivo,
+  Inter,
 } from 'next/font/google'
 import './globals.css'
 import Link from 'next/link'
 import { RoutinesProvider } from './(modules)/routines/(infrastucture)/(hooks)/RoutinesContext'
 
-const inter = Archivo({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Fitness App',
@@ -37,7 +38,7 @@ export default function RootLayout({
           lg:relative
           lg:bg-transparent
         '>
-          <span className='hidden lg:block'>LOGO</span>
+          <span className='hidden lg:block'>Fitness App</span>
 
           <div className='flex justify-between w-full lg:w-auto'>
             <Link className='m-auto text-[#fff] lg:mr-10' href="/">Home</Link>
