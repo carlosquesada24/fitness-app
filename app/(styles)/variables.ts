@@ -1,3 +1,13 @@
+export const GLOBALS = {
+    
+}
+
+export const CARD = {
+    BACKGROUND: "#464646",
+    BORDER: "#535353",
+}
+
+
 export const COLORS = {
     LIGHT: "",
     DARK: "",
@@ -5,8 +15,16 @@ export const COLORS = {
     DARK_GRAY: "#212121",
 
     WHITE: "#FFF",
-    BLACK: "#000"
+    BLACK: "#000",
+
+    BACKGROUND_COLOR: "#3A3A3A",
+    TEXT_COLOR: "#E0E0E0",
+
+    PRIMARY: "#3FC5F0",
+
+    ...CARD
 }
+
 
 export const PADDING = ""
 
