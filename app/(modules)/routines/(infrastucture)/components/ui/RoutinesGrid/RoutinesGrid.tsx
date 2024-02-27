@@ -20,29 +20,42 @@ const RoutinesGrid = () => {
               <Link
                 key={crypto.randomUUID()}
                 href={`/routines/${routine.id}`}
+                className={`
+                border-solid
+                border-1
+                border-[#535353]
+                `}
               >
-              <article key={crypto.randomUUID()} className={`
-                p-4 
-                flex 
-                
-                flex-col
-                sm:flex-row
+              <article 
+                key={crypto.randomUUID()} 
+                className={`
+                  p-4 
+                  flex 
+                  
+                  flex-col
+                  sm:flex-row
 
-                bg-[${COLORS.DARK_GRAY}]
-
-                justify-between 
-                hover:cursor-pointer
-                hover:bg-[#2e2e2e]
-                transition
-                duration-350
-                `}>
-                <div className='text-center sm:text-left my-3 sm:my-0'>
+                  bg-[#464646]
+                  
+                  rounded-[6px]
+                  justify-between 
+                  hover:cursor-pointer
+                  hover:bg-[#525252]
+                  
+                  transition
+                  duration-350
+                `}
+                style={{
+                  border: "1px solid #535353",
+                }}
+              >
+                <div className='text-center text-[#efefef] sm:text-left my-3 sm:my-0'>
                   <h3 className='md:text-[32px] text-[26px] font-bold my-2 sm:my-0'>{routine.name}</h3>
-                  <span>{routine.totalExercisesCount} exercises</span>
+                  <span className='text-[#d4cee8]'>{routine.totalExercisesCount} exercises</span>
                 </div>
                 <div className='text-center sm:text-left my-3 sm:my-0'>
                   <span className='block md:text-[32px] text-[26px] font-bold my-2 sm:my-0'>23%</span>
-                  <span>{routine.estimatedTime} min</span>
+                  <span className='text-[#d4cee8]'>{routine.estimatedTime} min</span>
                 </div>
               </article>
               </Link>

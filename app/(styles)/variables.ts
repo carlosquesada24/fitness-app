@@ -13,6 +13,8 @@ export const COLORS = {
     DARK: "",
     GRAY: "#212121",
     DARK_GRAY: "#212121",
+    PURPLE: "#D1A8FF",
+    DARK_PURPLE: "#7e679752",
 
     WHITE: "#FFF",
     BLACK: "#000",

@@ -21,15 +21,18 @@ const WorkoutSessionsGrid = ({workoutSessionsList}: WorkoutSessionGridProps) => 
         return (
           <Link
             key={crypto.randomUUID()}
-            className='text-center overflow-hidden'
+            className='text-center overflow-hidden rounded-[6px] hover:cursor-pointer '
             href={`/routines/${session.id}`}
+            style={{
+              border: "1px solid #535353",
+            }}
           >
             <article 
               key={crypto.randomUUID()} 
               className={`
                 ${WORKOUT_LOGS_CARD_STYLES}
               `}>
-              <h2 className='m-auto'>{formatDate(session?.date ?? "")}</h2>
+              <h2 className='m-auto font-bold'>{formatDate(session?.date ?? "")}</h2>
             </article>
           </Link>
         )

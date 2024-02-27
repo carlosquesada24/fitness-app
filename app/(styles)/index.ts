@@ -3,7 +3,7 @@ import { COLORS } from "./variables"
 export const BUTTON_STYLES = `
     p-2
 
-    bg-[#FFF]
+    bg-[#D1A8FF]
     text-[#000]
     hover:cursor-pointer
     hover:bg-[#cfcfcf]

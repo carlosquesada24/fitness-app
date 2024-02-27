@@ -17,9 +17,13 @@ const ExercisesGrid = (props: Props) => {
                     props.exersisesList.map(exercise => (
                         <div 
                             key={crypto.randomUUID()} 
-                            className={`${EXERCISE_CARD_STYLES}`}>
+                            className={`${EXERCISE_CARD_STYLES}`} 
+                            style={{
+                                border: "1px solid #535353",
+                              }}    
+                        >
                                 <h3 className='inline font-bold'>{exercise.name}</h3>
-                                <span>{exercise.estimatedTime} min</span>
+                                <span className='text-[#d4cee8]'>{exercise.estimatedTime} min</span>
                         </div>
                     ))
                 }
