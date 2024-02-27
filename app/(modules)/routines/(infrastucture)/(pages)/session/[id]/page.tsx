@@ -1,7 +1,7 @@
 "use client"
 
 import { useForm } from '@/app/(hooks)/useForm';
-import { buttonStyles } from '@/app/(styles)';
+import { BUTTON_STYLES } from '@/app/(styles)';
 import { HEADINGS } from '@/app/(styles)/variables';
 import Link from 'next/link';
 import React, { useState } from 'react'
@@ -161,12 +161,12 @@ const Page = ({ params }: any) => {
                 block 
                 font-bold 
                 ${isCurrentSetLast ? "hidden" : "block"}
-                ${buttonStyles}
+                ${BUTTON_STYLES}
                 ${isNextDisabled ? "bg-[#777777] hover:bg-[#777777]" : "bg-[#3d3d3d]"}
                 lg:m-auto
             `,
             nextExercise: `
-                font-bold ${isCurrentSetLast && !isLastExercise ? "block" : "hidden"} ${buttonStyles} lg:m-auto`,
+                font-bold ${isCurrentSetLast && !isLastExercise ? "block" : "hidden"} ${BUTTON_STYLES} lg:m-auto`,
             finish: `
                 text-[18px] 
                 font-bold 
@@ -176,7 +176,7 @@ const Page = ({ params }: any) => {
                         ? "block" 
                         : "hidden"
                 } 
-                ${buttonStyles} 
+                ${BUTTON_STYLES} 
                 lg:m-auto
                 width-[50%]
             `,

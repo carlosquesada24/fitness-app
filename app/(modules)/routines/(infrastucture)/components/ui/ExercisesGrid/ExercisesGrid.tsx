@@ -1,6 +1,7 @@
-import { routine } from '@/app/(modules)/routines/domain/data'
+
 import { Exercise } from '@/app/(modules)/routines/domain/entities'
-import { COLORS, HEADINGS } from '@/app/(styles)/variables'
+import { EXERCISE_CARD_STYLES } from '@/app/(styles)'
+import { HEADINGS } from '@/app/(styles)/variables'
 import React from 'react'
 
 interface Props {
@@ -11,24 +12,14 @@ const ExercisesGrid = (props: Props) => {
     return (
         <>
             <h4 className={`${HEADINGS.H3} font-bold mb-1`}>Exercises</h4>
-            <div className='w-full'>
+            <div className='grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-2 w-full'>
                 {
                     props.exersisesList.map(exercise => (
-                        <div key={crypto.randomUUID()} className={`
-            p-4
-            my-2
-
-            bg-[${COLORS.DARK_GRAY}]
-
-            flex 
-            justify-between
-            hover:cursor-pointer
-            hover:bg-[#2e2e2e]
-            transition
-            duration-350
-            `}>
-                            <h3 className='inline'>{exercise.name}</h3>
-                            <span>{exercise.estimatedTime} min</span>
+                        <div 
+                            key={crypto.randomUUID()} 
+                            className={`${EXERCISE_CARD_STYLES}`}>
+                                <h3 className='inline font-bold'>{exercise.name}</h3>
+                                <span>{exercise.estimatedTime} min</span>
                         </div>
                     ))
                 }
