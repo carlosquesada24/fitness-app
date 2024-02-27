@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { 
+import {
   Archivo,
   Inter,
 } from 'next/font/google'
@@ -21,10 +21,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      
       <body className={inter.className}>
         <nav className='
           w-full 
-          py-2 
+          h-12
 
           lg:px-8
 
@@ -38,20 +39,41 @@ export default function RootLayout({
           lg:relative
           lg:bg-transparent
         '>
-          <span className='hidden lg:block'>Fitness App</span>
+          <span className='hidden lg:block mr-auto'>Fitness App</span>
 
-          <div className='flex justify-between w-full lg:w-auto'>
-            <Link className='m-auto text-[#fff] lg:mr-10' href="/">Home</Link>
-            <Link className='m-auto text-[#fff] lg:mr-10' href="/routines">Routines</Link>
-            <Link className='m-auto text-[#fff] lg:mr-10' href="/recipes">Recipes</Link>
-            <Link className='m-auto text-[#fff]' href="/recipes">Profile</Link>
+          <div className='lg:flex lg:justify-between grid grid-cols-4 gap-1 w-full lg:w-auto'>
+            <Link className='text-[#fff] flex items-center justify-center hover:bg-[#212121] lg:hover:bg-[transparent] lg:hover:decoration-solid lg:hover:underline lg:hover:active:bg-[#7e679752] lg:mr-6' href="/">
+              <span className='hidden lg:inline'>Home</span>
+              <span className="material-symbols-outlined text-center lg:ml-3">
+                home
+              </span>
+            </Link>
+            <Link className='text-[#fff] flex items-center justify-center hover:bg-[#212121] lg:hover:bg-[transparent] lg:hover:decoration-solid lg:hover:underline lg:hover:active:bg-[#7e679752] lg:mr-6' href="/routines">
+              <span className='hidden lg:inline'>Routines</span>  
+              <span className="material-symbols-outlined text-center lg:ml-3">
+                fitness_center
+              </span>
+            </Link>
+            <Link className='text-[#fff] flex items-center justify-center hover:bg-[#212121] lg:hover:bg-[transparent] lg:hover:decoration-solid lg:hover:underline lg:hover:active:bg-[#7e679752] lg:mr-6' href="/recipes">
+              <span className='hidden lg:inline'>Recipes</span>  
+              <span className="material-symbols-outlined text-center lg:ml-3">
+                skillet
+              </span>
+            </Link>
+            <Link className='text-[#fff] flex items-center justify-center hover:bg-[#212121] lg:hover:bg-[transparent] lg:hover:decoration-solid lg:hover:underline lg:hover:active:bg-[#7e679752]' href="/recipes">
+              <span className='hidden lg:inline'>Profile</span>  
+              <span className="material-symbols-outlined text-center lg:ml-3">
+                person
+              </span>
+            </Link>
           </div>
         </nav>
 
         <main className="w-full min-h-screen p-2 sm:p-8">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
           <RoutinesProvider>
             {children}
-            </RoutinesProvider>
+          </RoutinesProvider>
         </main>
       </body>
     </html>
