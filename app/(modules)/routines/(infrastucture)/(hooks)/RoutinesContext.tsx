@@ -7,29 +7,31 @@ import { fitnessAppContextInitialState } from '../../domain/data';
 
 interface RoutinesContextData {
   routinesList: Routine[];
+  setRoutinesList: (routine: any) => void;
   workoutSession: any;
   addRoutine: (routine: Routine) => void;
-  addWorkoutSession: (routineId: string, workoutSession: any) => void;
+  addWorkoutSession: (newRoutinesList: Routine[]) => void;
   // Add other actions as needed
 }
 
 // Create the context
 export const RoutinesContext = createContext<RoutinesContextData>({
-    routinesList: [],
-    workoutSession: {},
-    addRoutine: () => {},
-    addWorkoutSession: () => {},
+  routinesList: [],
+  setRoutinesList: () => { },
+  workoutSession: {},
+  addRoutine: () => { },
+  addWorkoutSession: () => { },
 });
 
 // Create a provider component
-export const RoutinesProvider: React.FC<{children: any}> = ({ children }) => {
+export const RoutinesProvider: React.FC<{ children: any, params: any }> = ({ children, params }) => {
   const [routinesList, setRoutinesList] = useState<Routine[]>([]);
   const [workoutSession, setworkoutSession] = useState<any>({});
 
   const {
     storedValue,
     setValue
-} = useLocalStorage("fitness-app", fitnessAppContextInitialState)
+  } = useLocalStorage("fitness-app", fitnessAppContextInitialState)
 
   useEffect(() => {
     setRoutinesList(storedValue.routinesList ?? []);
@@ -44,53 +46,20 @@ export const RoutinesProvider: React.FC<{children: any}> = ({ children }) => {
     })
   };
 
-  const addWorkoutSession = (routineId: string, workoutSession: any) => {
-    setworkoutSession(workoutSession);
+  const addWorkoutSession = (newRoutinesList: Routine[]) => {
     setValue({
       ...storedValue,
-      workoutSession: {
-        id: "3123123123",
-        date: new Date().toISOString(),
-        exercises: [
-          {
-            id: "3123123123",
-            name: "Standard bench press",
-            reps: 10,
-            weight: 100,
-            weightUnit: "kg",
-          },
-          {
-            id: "3123123123",
-            name: "Incline bench press",
-            reps: 10,
-            weight: 100,
-            weightUnit: "kg",
-          },
-          {
-            id: "3123123123",
-            name: "Pecs flys",
-            reps: 10,
-            weight: 100,
-            weightUnit: "kg",
-          },
-          {
-            id: "3123123123",
-            name: "Pecs extensions",
-            reps: 10,
-            weight: 100,
-            weightUnit: "kg",
-          },
-        ],
-      },
+      routinesList: newRoutinesList
     })
   }
 
   return (
-    <RoutinesContext.Provider value={{ 
-      routinesList, 
+    <RoutinesContext.Provider value={{
+      routinesList,
+      setRoutinesList,
       addRoutine,
-      addWorkoutSession, 
-      workoutSession 
+      addWorkoutSession,
+      workoutSession
     }}>
       {children}
     </RoutinesContext.Provider>

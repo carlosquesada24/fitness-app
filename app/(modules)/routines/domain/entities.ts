@@ -8,6 +8,23 @@ interface RoutineTest {
     updated_at: string;
 }
 
+export const ROUTINE_DEFAULT_VALUE: Routine = {
+    id: "",
+    name: "",
+    description: "",
+    totalExercisesCount: 0,
+    estimatedTime: 0,
+    exercisesList: [],
+    workoutSessionLogsList: [],
+}
+
+export const EXERCISE_DEFAULT_VALUE: Exercise = {
+    id: "",
+    name: "",
+    estimatedTime: 0,
+    sets: 0,
+}
+
 export interface Routine {
     id: string,
     name: string,
@@ -22,6 +39,7 @@ export interface Exercise {
     id: string
     name: string
     estimatedTime: number
+    sets: number
 }
 
 export interface WorkoutSessionLog {
@@ -47,3 +65,9 @@ export interface FitnessAppContext {
     routinesList: Routine[]
     recipesList: any[]
 }
+
+export interface SessionForm {
+    reps: number;
+    weight: number;
+    weightUnit: string;
+  }

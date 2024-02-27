@@ -36,7 +36,7 @@ const Page = ({ params }: any) => {
 
       <div className='mb-12 flex items-center'>
         <Link
-          href={`/routines/session/${crypto.randomUUID()}`}
+          href={`/routines/${params.id}/session/${crypto.randomUUID()}`}
           className={`
             ${START_WORKOUT_SESSION_BUTTON_STYLES}
             mr-auto
