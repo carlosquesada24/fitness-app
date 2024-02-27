@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import { HEADINGS } from '@/app/(styles)/variables'
 import { WORKOUT_LOGS_CARD_STYLES } from '@/app/(styles)'
+import { formatDate } from '@/app/(helpers)/date'
 
 interface WorkoutSessionGridProps {
     workoutSessionsList: any[]
@@ -16,6 +17,7 @@ const WorkoutSessionsGrid = ({workoutSessionsList}: WorkoutSessionGridProps) => 
   {
     workoutSessionsList.length > 0 ?
       workoutSessionsList.map((session: any) => {
+        console.log({d: session.date})
         return (
           <Link
             key={crypto.randomUUID()}
@@ -27,7 +29,7 @@ const WorkoutSessionsGrid = ({workoutSessionsList}: WorkoutSessionGridProps) => 
               className={`
                 ${WORKOUT_LOGS_CARD_STYLES}
               `}>
-              <h2 className='m-auto'>{session.date}</h2>
+              <h2 className='m-auto'>{formatDate(session?.date ?? "")}</h2>
             </article>
           </Link>
         )
