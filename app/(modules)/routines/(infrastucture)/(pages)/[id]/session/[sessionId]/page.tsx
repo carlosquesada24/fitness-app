@@ -10,18 +10,18 @@ import { EXERCISE_DEFAULT_VALUE, ROUTINE_DEFAULT_VALUE, Routine, SessionForm } f
 import { INITIAL_SET, sessionFormInitialState, workoutSessionInitialState } from '@/app/(modules)/routines/domain/data';
 
 const Page = ({ params }: any) => {
-    const { 
-        addWorkoutSession, 
-        routinesList, 
-        setRoutinesList 
+    const {
+        addWorkoutSession,
+        routinesList,
+        setRoutinesList
     } = useRoutines()
 
     const [routine, setRoutine] = useState(
         () => routinesList
-                .find(
-                    (routine: any) => routine.id === params.id
-                ) 
-                ?? ROUTINE_DEFAULT_VALUE
+            .find(
+                (routine: any) => routine.id === params.id
+            )
+            ?? ROUTINE_DEFAULT_VALUE
     )
 
     const [currentExercise, setCurrentExercise] = useState(
@@ -32,14 +32,14 @@ const Page = ({ params }: any) => {
     const [workoutSession, setWorkoutSession] = useState(workoutSessionInitialState)
 
     useEffect(() => {
-        
+
         setRoutine(
             routinesList.find(
                 (routine: any) => routine.id === params.id
             ) ?? ROUTINE_DEFAULT_VALUE
         )
 
-        setCurrentExercise(routine?.exercisesList[0] 
+        setCurrentExercise(routine?.exercisesList[0]
             ?? EXERCISE_DEFAULT_VALUE)
 
     }, [routine])
@@ -118,7 +118,7 @@ const Page = ({ params }: any) => {
                 }),
             };
 
-            const exerciseExistsFormatter = ({workoutSessionNested}: {workoutSessionNested: any}) => ({
+            const exerciseExistsFormatter = ({ workoutSessionNested }: { workoutSessionNested: any }) => ({
                 ...workoutSessionNested,
                 exercises: workoutSessionNested.exercises.map((exercise: any) => {
                     if (exercise.id === exerciseId) {
@@ -198,7 +198,7 @@ const Page = ({ params }: any) => {
                 number: currentSet,
                 ...formValues
             };
-            
+
 
             // Define the exercise id where you want to add the new set
             const exerciseId = currentExercise.id;
@@ -238,7 +238,23 @@ const Page = ({ params }: any) => {
         pageTitle: `${HEADINGS.H2} font-bold`,
         formGroup: "my-5 flex justify-center flex-col",
         formLabel: "text-center text-[24px] mb-2",
-        formInput: "block p-2 bg-[#3d3d3d] w-full text-center",
+        formInput: `
+            block 
+            p-2 
+            bg-[#3d3d3d] 
+            w-full 
+            text-center
+            rounded-[6px]
+            outline-none
+            border
+            border-solid
+            border-[transparent]
+            focus:border 
+            focus:border-solid
+            focus:border-[#D1A8FF]
+            transition
+            duration-350
+        `,
         nextExerciseSpan: `text-[18px] ${isCurrentSetLast && !isLastExercise ? "block" : "hidden"} lg:m-auto text-center`,
         buttons: {
             nextSet: `
@@ -248,10 +264,46 @@ const Page = ({ params }: any) => {
                 ${buttonStyles}
                 ${isNextDisabled ? "bg-[#777777] hover:bg-[#777777]" : "bg-[#3d3d3d]"}
                 lg:m-auto
+                rounded-[6px]
+                p-2
+                bg-[#D1A8FF]
+                text-[#000]
+                hover:cursor-pointer
+                hover:bg-[#cfcfcf]
+                transition
+                duration-350
             `,
             nextExercise: `
-                font-bold ${isCurrentSetLast && !isLastExercise ? "block" : "hidden"} ${buttonStyles} lg:m-auto`,
-            finish: `text-[18px] font-bold ${isCurrentSetLast && isLastExercise ? "block" : "hidden"} ${buttonStyles} lg:m-auto`,
+                font-bold 
+                ${isCurrentSetLast && !isLastExercise ? "block" : "hidden"} 
+                ${buttonStyles} 
+                lg:m-auto 
+                rounded-[6px] 
+                p-2
+                bg-[#D1A8FF]
+                text-[#000]
+                hover:cursor-pointer
+                hover:bg-[#cfcfcf]
+                transition
+                duration-350    
+            `,
+            finish: `
+                
+                inline-block
+                text-center
+                font-bold 
+                ${isCurrentSetLast && isLastExercise ? "block" : "hidden"} 
+                ${buttonStyles} 
+                lg:m-auto 
+                rounded-[6px] 
+                p-2
+                bg-[#D1A8FF]
+                text-[#000]
+                hover:cursor-pointer
+                hover:bg-[#cfcfcf]
+                transition
+                duration-350
+            `,
         }
     }
 
@@ -337,11 +389,13 @@ const Page = ({ params }: any) => {
                 {nextExercise?.name ?? ""}
             </span>
 
-            <Link
-                href={`/`}
-                className={sessionPageStyles.buttons.finish}
-                onClick={handleFinish}
-            >Finish</Link>
+            <div className='w-full text-center'>
+                <Link
+                    href={`/`}
+                    className={sessionPageStyles.buttons.finish}
+                    onClick={handleFinish}
+                >Finish</Link>
+            </div>
         </>
     )
 }

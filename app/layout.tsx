@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="en">
       
       <body className={inter.className}>
-        <nav className='
+        <nav className={`
           w-full 
           h-12
 
@@ -33,12 +33,13 @@ export default function RootLayout({
           fixed 
           flex 
           justify-between 
+          items-center
           bottom-0
           lg:top-0
           lg:bottom-auto
           lg:relative
           lg:bg-transparent
-        '>
+          `}>
           <span className='hidden lg:block mr-auto'>Fitness App</span>
 
           <div className='lg:flex lg:justify-between grid grid-cols-4 gap-1 w-full lg:w-auto'>

@@ -47,13 +47,14 @@ const Page = ({ params }: any) => {
             src={START_WORKOUT_SESSION_ICON} 
             alt="Start workout session icon" 
             className={`flex font-bold`}
-            width={26}
-            height={15}
+            width={32}
           />
         </Link>
 
-        <span className='ml-auto mr-5'>176 calories 🔥</span>
-        <span className=''>32 min 🕙</span>
+        <div className='flex flex-col items-end lg:flex-row'>
+          <span className='ml-auto lg:mr-5 text-[22px] lg:text-[24px]'>176 calories 🔥</span>
+          <span className='text-[22px] lg:text-[24px]'>32 min 🕙</span>
+        </div>
       </div>
 
       <ExercisesGrid

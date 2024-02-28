@@ -24,7 +24,7 @@ export const RoutinesContext = createContext<RoutinesContextData>({
 });
 
 // Create a provider component
-export const RoutinesProvider: React.FC<{ children: any, params: any }> = ({ children, params }) => {
+export const RoutinesProvider: React.FC<{ children: any }> = ({ children }) => {
   const [routinesList, setRoutinesList] = useState<Routine[]>([]);
   const [workoutSession, setworkoutSession] = useState<any>({});
 
