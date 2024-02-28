@@ -1,7 +1,7 @@
 "use client"
 
 import { useForm } from '@/app/(hooks)/useForm';
-import { buttonStyles } from '@/app/(styles)';
+import { BUTTON_STYLES } from '@/app/(styles)';
 import { HEADINGS } from '@/app/(styles)/variables';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
@@ -88,21 +88,28 @@ const Page = ({ params }: any) => {
 
                         const exerciseExists = workoutSessionNested.exercises.some(exercise => exercise.id === exerciseId);
 
+                        console.log("CABEZA")
+
                         if (exerciseExists) {
+                            console.log("CODO")
                             return {
                                 ...workoutSessionNested,
                                 exercises: workoutSessionNested.exercises.map(exercise => {
+                                    console.log({exerciseId, id: exercise.id})
                                     if (exercise.id === exerciseId) {
+                                        console.log("MUÑECA")
                                         return {
                                             ...exercise,
                                             sets: [...exercise.sets, newSetFormatter(newSet)],
                                         };
                                     } else {
+                                        console.log("CUELLO")
                                         return exercise;
                                     }
                                 }),
                             };
                         } else {
+                            console.log("MANO")
                             return {
                                 ...workoutSessionNested,
                                 exercises: [...workoutSessionNested.exercises, {
@@ -113,6 +120,7 @@ const Page = ({ params }: any) => {
                             };
                         }
                     } else {
+                        console.log("HOMBRO")
                         return workoutSessionNested;
                     }
                 }),
@@ -134,6 +142,8 @@ const Page = ({ params }: any) => {
 
             if (routine.id === routineId) {
                 const workoutSessionExists = routine.workoutSessionLogsList.some(workoutSession => workoutSession.id === workoutSessionId);
+
+                console.log({workoutSessionExists})
 
                 if (workoutSessionExists) {
                     return editWorkoutSessionObject
@@ -168,7 +178,7 @@ const Page = ({ params }: any) => {
         const exerciseId = currentExercise.id;
 
         // Define the workout session id where you want to add the new exercise
-        const workoutSessionId = workoutSession.id;
+        const workoutSessionId = params.sessionId;
 
         // Define the routine id where you want to add the new workout session log
         const routineId = params.id;
@@ -179,6 +189,8 @@ const Page = ({ params }: any) => {
             exerciseId,
             newSet
         })
+
+        console.log({workoutSessionId, newRoutinesList, title: "next set"})
 
         setRoutinesList(newRoutinesList)
     }
@@ -204,7 +216,7 @@ const Page = ({ params }: any) => {
             const exerciseId = currentExercise.id;
 
             // Define the workout session id where you want to add the new exercise
-            const workoutSessionId = workoutSession.id;
+            const workoutSessionId =params.sessionId;
 
             // Define the routine id where you want to add the new workout session log
             const routineId = params.id;
@@ -216,6 +228,8 @@ const Page = ({ params }: any) => {
                 exerciseId,
                 newSet
             })
+
+            console.log({newRoutinesList, title: "next exercise"})
 
             setRoutinesList(newRoutinesList)
 
@@ -261,7 +275,7 @@ const Page = ({ params }: any) => {
                 block 
                 font-bold 
                 ${isCurrentSetLast ? "hidden" : "block"}
-                ${buttonStyles}
+                ${BUTTON_STYLES}
                 ${isNextDisabled ? "bg-[#777777] hover:bg-[#777777]" : "bg-[#3d3d3d]"}
                 lg:m-auto
                 rounded-[6px]
@@ -276,7 +290,7 @@ const Page = ({ params }: any) => {
             nextExercise: `
                 font-bold 
                 ${isCurrentSetLast && !isLastExercise ? "block" : "hidden"} 
-                ${buttonStyles} 
+                ${BUTTON_STYLES} 
                 lg:m-auto 
                 rounded-[6px] 
                 p-2
@@ -293,7 +307,7 @@ const Page = ({ params }: any) => {
                 text-center
                 font-bold 
                 ${isCurrentSetLast && isLastExercise ? "block" : "hidden"} 
-                ${buttonStyles} 
+                ${BUTTON_STYLES} 
                 lg:m-auto 
                 rounded-[6px] 
                 p-2
@@ -317,7 +331,7 @@ const Page = ({ params }: any) => {
         const exerciseId = currentExercise.id;
 
         // Define the workout session id where you want to add the new exercise
-        const workoutSessionId = workoutSession.id;
+        const workoutSessionId = params.sessionId;
 
         // Define the routine id where you want to add the new workout session log
         const routineId = params.id;
@@ -328,6 +342,8 @@ const Page = ({ params }: any) => {
             exerciseId,
             newSet
         })
+
+        console.log({newRoutinesList, title: "finish"})
 
         setRoutinesList(newRoutinesList)
         addWorkoutSession(newRoutinesList as Routine[])
