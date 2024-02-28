@@ -2,8 +2,8 @@
 
 import useLocalStorage from '@/app/(hooks)/useLocalStorage';
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { Routine } from '../../domain/entities';
-import { fitnessAppContextInitialState } from '../../domain/data';
+import { Routine } from '../../(domain)/entities';
+import { fitnessAppContextInitialState } from '../../(domain)/data';
 
 interface RoutinesContextData {
   routinesList: Routine[];

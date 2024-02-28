@@ -6,8 +6,8 @@ import { HEADINGS } from '@/app/(styles)/variables';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 import { useRoutines } from '../../../../(hooks)/RoutinesContext';
-import { EXERCISE_DEFAULT_VALUE, ROUTINE_DEFAULT_VALUE, Routine, SessionForm } from '@/app/(modules)/routines/domain/entities';
-import { INITIAL_SET, sessionFormInitialState, workoutSessionInitialState } from '@/app/(modules)/routines/domain/data';
+import { EXERCISE_DEFAULT_VALUE, ROUTINE_DEFAULT_VALUE, Routine, SessionForm } from '@/app/(modules)/routines/(domain)/entities';
+import { INITIAL_SET, sessionFormInitialState, workoutSessionInitialState } from '@/app/(modules)/routines/(domain)/data';
 
 const Page = ({ params }: any) => {
     const {

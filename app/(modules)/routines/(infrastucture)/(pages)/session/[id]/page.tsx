@@ -6,7 +6,7 @@ import { HEADINGS } from '@/app/(styles)/variables';
 import Link from 'next/link';
 import React, { useState } from 'react'
 import { useRoutines } from '../../../(hooks)/RoutinesContext';
-import { WorkoutSessionLog } from '@/app/(modules)/routines/domain/entities';
+import { WorkoutSessionLog } from '@/app/(modules)/routines/(domain)/entities';
 
 const exercises = [
     {
@@ -222,7 +222,7 @@ const Page = ({ params }: any) => {
         }
 
 
-        addWorkoutSession("1", {})
+        // addWorkoutSession("1", {})
     }
 
     return (

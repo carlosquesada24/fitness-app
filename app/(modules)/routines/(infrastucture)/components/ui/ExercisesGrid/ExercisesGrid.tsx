@@ -1,5 +1,5 @@
 
-import { Exercise } from '@/app/(modules)/routines/domain/entities'
+import { Exercise } from '@/app/(modules)/routines/(domain)/entities'
 import { EXERCISE_CARD_STYLES } from '@/app/(styles)'
 import { HEADINGS } from '@/app/(styles)/variables'
 import React from 'react'

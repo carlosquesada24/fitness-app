@@ -12,7 +12,7 @@ const RoutinesGrid = () => {
   const { routinesList } = useRoutines()
 
   return (
-    <div className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-12 w-full'>
+    <div className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-2 w-full'>
       {
         routinesList.length > 0 ?
           routinesList.map((routine: any) => {
@@ -29,7 +29,7 @@ const RoutinesGrid = () => {
                 <article
                   key={crypto.randomUUID()}
                   className={`
-                  p-4 
+                  p-5
                   flex 
                   
                   flex-col
@@ -49,7 +49,7 @@ const RoutinesGrid = () => {
                     border: "1px solid #535353",
                   }}
                 >
-                  <h3 className='md:text-[32px] text-[26px] font-bold my-2 sm:my-0'>{routine.name}</h3>
+                  <h3 className='md:text-[32px] text-[26px] font-bold sm:my-0'>{routine.name}</h3>
                   <div className='flex w-full justify-between'>
                     <span className='text-[#d4cee8]'>{routine.totalExercisesCount} exercises</span>
                     <span className='text-[#d4cee8] mt-auto'>{routine.estimatedTime} min</span>
