@@ -35,16 +35,18 @@ const exercises = [
     },
 ];
 
-const formInitialState = {
+const formInitialState: Form = {
     reps: 0,
     weight: 0,
     weightUnit: "kg",
+    restTimeInMinutes: 0
 }
 
 interface Form {
     reps: number;
     weight: number;
     weightUnit: string;
+    restTimeInMinutes: number;
 }
 
 const workoutSessionInitialState: WorkoutSessionLog = {
@@ -96,6 +98,7 @@ const Page = ({ params }: any) => {
                                     reps: (formValues as Form).reps,
                                     weight: (formValues as Form).weight,
                                     weightUnit: (formValues as Form).weightUnit,
+                                    restTimeInMinutes: (formValues as Form).restTimeInMinutes,
                                 },
                             ],
                         };
@@ -147,6 +150,10 @@ const Page = ({ params }: any) => {
         (formValues as Form).weight === 0
             ? ""
             : (formValues as Form).weight
+    const restTimeInputValue =
+            (formValues as Form).restTimeInMinutes === 0
+                ? ""
+                : (formValues as Form).restTimeInMinutes
 
 
     const sessionPageStyles = {

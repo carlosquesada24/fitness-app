@@ -51,7 +51,8 @@ const Page = ({ params }: any) => {
         formValues: {
             reps: parseInt(formValues.reps),
             weight: parseInt(formValues.weight),
-            weightUnit: formValues.weightUnit
+            weightUnit: formValues.weightUnit,
+            restTimeInMinutes: parseInt(formValues.restTimeInMinutes)
         }
     })
 
@@ -88,28 +89,21 @@ const Page = ({ params }: any) => {
 
                         const exerciseExists = workoutSessionNested.exercises.some(exercise => exercise.id === exerciseId);
 
-                        console.log("CABEZA")
-
                         if (exerciseExists) {
-                            console.log("CODO")
                             return {
                                 ...workoutSessionNested,
                                 exercises: workoutSessionNested.exercises.map(exercise => {
-                                    console.log({exerciseId, id: exercise.id})
                                     if (exercise.id === exerciseId) {
-                                        console.log("MUÑECA")
                                         return {
                                             ...exercise,
                                             sets: [...exercise.sets, newSetFormatter(newSet)],
                                         };
                                     } else {
-                                        console.log("CUELLO")
                                         return exercise;
                                     }
                                 }),
                             };
                         } else {
-                            console.log("MANO")
                             return {
                                 ...workoutSessionNested,
                                 exercises: [...workoutSessionNested.exercises, {
@@ -120,7 +114,6 @@ const Page = ({ params }: any) => {
                             };
                         }
                     } else {
-                        console.log("HOMBRO")
                         return workoutSessionNested;
                     }
                 }),
@@ -142,8 +135,6 @@ const Page = ({ params }: any) => {
 
             if (routine.id === routineId) {
                 const workoutSessionExists = routine.workoutSessionLogsList.some(workoutSession => workoutSession.id === workoutSessionId);
-
-                console.log({workoutSessionExists})
 
                 if (workoutSessionExists) {
                     return editWorkoutSessionObject
@@ -190,8 +181,6 @@ const Page = ({ params }: any) => {
             newSet
         })
 
-        console.log({workoutSessionId, newRoutinesList, title: "next set"})
-
         setRoutinesList(newRoutinesList)
     }
 
@@ -229,8 +218,6 @@ const Page = ({ params }: any) => {
                 newSet
             })
 
-            console.log({newRoutinesList, title: "next exercise"})
-
             setRoutinesList(newRoutinesList)
 
             setCurrentExerciseIndex(nextExerciseIndex);
@@ -246,6 +233,10 @@ const Page = ({ params }: any) => {
         (formValues as SessionForm).weight === 0
             ? ""
             : (formValues as SessionForm).weight
+    const restTimeInputValue =
+            (formValues as SessionForm).restTimeInMinutes === 0
+                ? ""
+                : (formValues as SessionForm).restTimeInMinutes
 
 
     const sessionPageStyles = {
@@ -343,8 +334,6 @@ const Page = ({ params }: any) => {
             newSet
         })
 
-        console.log({newRoutinesList, title: "finish"})
-
         setRoutinesList(newRoutinesList)
         addWorkoutSession(newRoutinesList as Routine[])
     }
@@ -391,6 +380,17 @@ const Page = ({ params }: any) => {
                 </select>
             </div>
 
+            <div className={sessionPageStyles.formGroup}>
+                <label className={sessionPageStyles.formLabel} htmlFor="restTimeInMinutes">Rest time in minutes</label>
+                <input
+                    className={sessionPageStyles.formInput}
+                    name="restTimeInMinutes"
+                    placeholder='0'
+                    type="text"
+                    value={restTimeInputValue}
+                    onChange={handleInputChange}
+                />
+            </div>
 
             <button
                 style={{

@@ -461,6 +461,7 @@ export const sessionFormInitialState: SessionForm = {
   reps: 0,
   weight: 0,
   weightUnit: "kg",
+  restTimeInMinutes: 0,
 }
 
 export const workoutSessionInitialState: WorkoutSessionLog = {

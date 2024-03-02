@@ -17,7 +17,6 @@ const WorkoutSessionsGrid = ({workoutSessionsList}: WorkoutSessionGridProps) => 
   {
     workoutSessionsList.length > 0 ?
       workoutSessionsList.map((session: any) => {
-        console.log({d: session.date})
         return (
           <Link
             key={crypto.randomUUID()}

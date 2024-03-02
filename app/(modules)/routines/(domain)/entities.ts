@@ -70,4 +70,5 @@ export interface SessionForm {
     reps: number;
     weight: number;
     weightUnit: string;
+    restTimeInMinutes: number;
   }
