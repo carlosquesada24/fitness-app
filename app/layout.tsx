@@ -55,18 +55,18 @@ export default function RootLayout({
                 fitness_center
               </span>
             </Link>
-            <Link className='text-[#fff] flex items-center justify-center hover:bg-[#212121] lg:hover:bg-[transparent] lg:hover:decoration-solid lg:hover:underline lg:hover:active:bg-[#7e679752] lg:mr-6' href="/recipes">
+            {/* <Link className='text-[#fff] flex items-center justify-center hover:bg-[#212121] lg:hover:bg-[transparent] lg:hover:decoration-solid lg:hover:underline lg:hover:active:bg-[#7e679752] lg:mr-6' href="/recipes">
               <span className='hidden lg:inline'>Recipes</span>  
               <span className="material-symbols-outlined text-center lg:ml-3">
                 skillet
               </span>
-            </Link>
-            <Link className='text-[#fff] flex items-center justify-center hover:bg-[#212121] lg:hover:bg-[transparent] lg:hover:decoration-solid lg:hover:underline lg:hover:active:bg-[#7e679752]' href="/recipes">
+            </Link> */}
+            {/* <Link className='text-[#fff] flex items-center justify-center hover:bg-[#212121] lg:hover:bg-[transparent] lg:hover:decoration-solid lg:hover:underline lg:hover:active:bg-[#7e679752]' href="/recipes">
               <span className='hidden lg:inline'>Profile</span>  
               <span className="material-symbols-outlined text-center lg:ml-3">
                 person
               </span>
-            </Link>
+            </Link> */}
           </div>
         </nav>
 
