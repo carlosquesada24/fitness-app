@@ -6,6 +6,7 @@ import {
 import './globals.css'
 import Link from 'next/link'
 import { RoutinesProvider } from './(modules)/routines/(infrastucture)/(hooks)/RoutinesContext'
+import Navbar from './components/Navbar/Navbar'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,59 +20,18 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+
+  let isLogged = true
+
   return (
     <html lang="en">
-      
       <body className={inter.className}>
-        <nav className={`
-          w-full 
-          h-12
-
-          lg:px-8
-
-          bg-[#252525] 
-          fixed 
-          flex 
-          justify-between 
-          items-center
-          bottom-0
-          lg:top-0
-          lg:bottom-auto
-          lg:relative
-          lg:bg-transparent
-          `}>
-          <span className='hidden lg:block mr-auto'>Fitness App</span>
-
-          <div className='lg:flex lg:justify-between grid grid-cols-4 gap-1 w-full lg:w-auto'>
-            <Link className='text-[#fff] flex items-center justify-center hover:bg-[#212121] lg:hover:bg-[transparent] lg:hover:decoration-solid lg:hover:underline lg:hover:active:bg-[#7e679752] lg:mr-6' href="/">
-              <span className='hidden lg:inline'>Home</span>
-              <span className="material-symbols-outlined text-center lg:ml-3">
-                home
-              </span>
-            </Link>
-            <Link className='text-[#fff] flex items-center justify-center hover:bg-[#212121] lg:hover:bg-[transparent] lg:hover:decoration-solid lg:hover:underline lg:hover:active:bg-[#7e679752] lg:mr-6' href="/routines">
-              <span className='hidden lg:inline'>Routines</span>  
-              <span className="material-symbols-outlined text-center lg:ml-3">
-                fitness_center
-              </span>
-            </Link>
-            {/* <Link className='text-[#fff] flex items-center justify-center hover:bg-[#212121] lg:hover:bg-[transparent] lg:hover:decoration-solid lg:hover:underline lg:hover:active:bg-[#7e679752] lg:mr-6' href="/recipes">
-              <span className='hidden lg:inline'>Recipes</span>  
-              <span className="material-symbols-outlined text-center lg:ml-3">
-                skillet
-              </span>
-            </Link> */}
-            {/* <Link className='text-[#fff] flex items-center justify-center hover:bg-[#212121] lg:hover:bg-[transparent] lg:hover:decoration-solid lg:hover:underline lg:hover:active:bg-[#7e679752]' href="/recipes">
-              <span className='hidden lg:inline'>Profile</span>  
-              <span className="material-symbols-outlined text-center lg:ml-3">
-                person
-              </span>
-            </Link> */}
-          </div>
-        </nav>
+        <Navbar 
+          isLogged={isLogged}
+        />
 
         <main className="w-full min-h-screen p-2 sm:p-8">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
           <RoutinesProvider>
             {children}
           </RoutinesProvider>
