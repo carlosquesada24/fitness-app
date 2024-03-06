@@ -407,7 +407,7 @@ const Page = ({ params }: any) => {
 
             <div className='w-full text-center'>
                 <Link
-                    href={`/`}
+                    href={`/routines`}
                     className={sessionPageStyles.buttons.finish}
                     onClick={handleFinish}
                 >Finish</Link>
