@@ -5,8 +5,17 @@ import { COLORS } from "./(styles)/variables"
 const ROUTES = {
     HOME: '/',
     ROUTINES: '/routines',
-    PROFILE: '/profile'
+    PROFILE: '/profile',
 
+    SIGN_UP: "authentication/sign-up",
+    LOGIN: "authentication/login",
+}
+
+export const API_ROUTES = {
+    SIGN_UP: "/api/authentication/sign-up",
+    LOGIN_WITHOUT_PASSWORD: "/api/authentication/log-in-without-password",
+    LOGIN_WITH_PASSWORD: "/api/authentication/log-in-with-password",
+    RECOVER_PASSWORD: "/api/authentication/recover-password",
 }
 
 export const unauthenticatedLinksList = [
@@ -21,7 +30,7 @@ export const unauthenticatedLinksList = [
             ${BUTTON_STYLES}
             bg-[${COLORS.PRIMARY}]
             `} 
-        href={ROUTES.HOME}
+        href={ROUTES.SIGN_UP}
     >
         <span className='hidden lg:inline'>Create an account</span>
         {/* <span className="material-symbols-outlined text-center lg:ml-3">
