@@ -1,5 +1,26 @@
 import { COLORS } from "./variables"
 
+export const INPUT_STYLES = `
+    w-full 
+    p-2 
+    text-[#fcfcfc] 
+    rounded-[6px]
+
+    block 
+    
+    bg-[#3d3d3d] 
+
+    outline-none
+    border
+    border-solid
+    border-[transparent]
+    focus:border 
+    focus:border-solid
+    focus:border-[#D1A8FF]
+    transition
+    duration-350 
+`
+
 export const BUTTON_STYLES = `
     p-2
 
