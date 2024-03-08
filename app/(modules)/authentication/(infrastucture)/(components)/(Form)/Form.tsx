@@ -138,6 +138,16 @@ const Form = () => {
               handleInputChange={(e: any) => setName(e)}
             />
 
+            <div className="form-group mb-5">
+              <label className='mr-4'>
+                Do you want to receive emails of new releases?
+              </label>
+              <input
+                type="checkbox"
+                checked={receiveEmails}
+                onChange={e => setReceiveEmails(e.target.checked)} />
+            </div>
+
             <button
               className={`p-2 ${BUTTON_STYLES} mb-5 rounded-[6px]`}
               onClick={handleSignUp}
