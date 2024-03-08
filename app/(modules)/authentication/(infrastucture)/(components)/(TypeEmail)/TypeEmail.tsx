@@ -1,27 +1,17 @@
 "use client"
-import { BUTTON_STYLES, INPUT_STYLES } from '@/app/(styles)';
-import React, { useState } from 'react'
+import { INPUT_STYLES } from '@/app/(styles)';
+import React from 'react'
 
 interface TypeEmailProps {
+  email: string;
+  handleInputChange: (e: any) => void;
   handleNextStep: () => void;
 }
 
-const TypeEmail = ({ handleNextStep }: TypeEmailProps) => {
-
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [receiveEmails, setReceiveEmails] = useState(false);
-
-  const SIGN_UP_FORM_STEPS = {
-    TYPE_EMAIL: 'TYPE_EMAIL',
-    CHECK_EMAIL: 'CHECK_EMAIL',
-  }
-
-  const handleSubmit = (event: any) => {
-    event.preventDefault();
-    // Handle form submission here
-  };
-
+const TypeEmail = ({ 
+  email,
+  handleInputChange, 
+}: TypeEmailProps) => {
   return (
     <>
       <div className="form-group mb-5 w-full">
@@ -33,22 +23,9 @@ const TypeEmail = ({ handleNextStep }: TypeEmailProps) => {
           placeholder='admin@example.com'
           type="email" 
           value={email} 
-          onChange={e => setEmail(e.target.value)} required 
+          onChange={e => handleInputChange(e.target.value)} required 
         />
       </div>
-
-      {/* <div className="form-group mb-5">
-          <label className='mr-4'>
-            Do you want to receive emails of new releases?
-          </label>
-          <input type="checkbox" checked={receiveEmails} onChange={e => setReceiveEmails(e.target.checked)} />
-        </div> */}
-
-      <button 
-        className={`p-2 ${BUTTON_STYLES} mb-5 rounded-[6px]`}
-        type="submit"
-        onClick={handleNextStep}
-      >Send sign in link</button>
     </>
   )
 }
