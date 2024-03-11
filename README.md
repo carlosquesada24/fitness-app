@@ -1,13 +1,13 @@
 # Installation
 Change node version
-nvm use 18
+`nvm use 18`
 
 Install dependencies
-npm install
-yarn
+`npm install`
+`yarn`
 
 Run project
-npm run dev
-yarn dev
+`npm run dev`
+`yarn dev`
 
 http://localhost:3000/routines
