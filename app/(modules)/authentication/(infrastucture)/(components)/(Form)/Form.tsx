@@ -5,7 +5,10 @@ import CheckEmail from '../(CheckEmail)/CheckEmail';
 import TypeEmail from '../(TypeEmail)/TypeEmail';
 import { API_ROUTES } from '@/app/routes';
 import { BUTTON_STYLES } from '@/app/(styles)';
-import TypeNameInput from '../(TypeNameInput)/TypeNameInput';
+
+import { createClient } from '@supabase/supabase-js';
+import TypePassword from '../(TypePassword)/TypePassword';
+import CONFIG from '@/app/(config)/config';
 
 const LOG_IN_FORM_STEPS = {
   TYPE_EMAIL: 'TYPE_EMAIL',
@@ -33,6 +36,11 @@ const Form = () => {
         : SIGN_UP_FORM_STEPS.PERSONAL_INFORMATION
     );
 
+  const supabase = createClient(
+    CONFIG.SUPABASE.PROJECT_URL ?? "",
+    CONFIG.SUPABASE.ANON_KEY ?? ""
+  );
+
   const handleSendSignInLink = async (e: any) => {
     e.preventDefault()
 
@@ -51,6 +59,14 @@ const Form = () => {
   }
 
   const handleSignUp = async (e: any) => {
+
+    e.preventDefault()
+
+    let { data, error } = await supabase.auth.signUp({
+      email: 'someone@email.com',
+      password: 'PauPEVlMJwNoMChheHXb'
+    })
+
   }
 
   const handleNextStep = () => {
@@ -133,9 +149,14 @@ const Form = () => {
               handleNextStep={handleNextStep}
             />
 
-            <TypeNameInput
+            {/* <TypeNameInput
               name={name}
               handleInputChange={(e: any) => setName(e)}
+            /> */}
+
+            <TypePassword
+              password={password}
+              handleInputChange={(e: any) => setPassword(e)}
             />
 
             <div className="form-group mb-5">
