@@ -3,12 +3,11 @@ import React from 'react'
 import { useState } from 'react'
 import CheckEmail from '../(CheckEmail)/CheckEmail';
 import TypeEmail from '../(TypeEmail)/TypeEmail';
-import { API_ROUTES } from '@/app/routes';
 import { BUTTON_STYLES } from '@/app/(styles)';
 
-import { createClient } from '@supabase/supabase-js';
 import TypePassword from '../(TypePassword)/TypePassword';
-import CONFIG from '@/app/(config)/config';
+import { useAuth } from '../../(context)/AuthContext';
+import Link from 'next/link';
 
 const LOG_IN_FORM_STEPS = {
   TYPE_EMAIL: 'TYPE_EMAIL',
@@ -16,7 +15,8 @@ const LOG_IN_FORM_STEPS = {
 }
 
 const SIGN_UP_FORM_STEPS = {
-  PERSONAL_INFORMATION: "PERSONAL_INFORMATION"
+  PERSONAL_INFORMATION: "PERSONAL_INFORMATION",
+  VERIFY_ACCOUNT: "VERIFY_ACCOUNT",
 }
 
 const Form = () => {
@@ -36,37 +36,24 @@ const Form = () => {
         : SIGN_UP_FORM_STEPS.PERSONAL_INFORMATION
     );
 
-  const supabase = createClient(
-    CONFIG.SUPABASE.PROJECT_URL ?? "",
-    CONFIG.SUPABASE.ANON_KEY ?? ""
-  );
+  const {
+    signUp,
+    logInWithoutPassword
+  } = useAuth()
 
   const handleSendSignInLink = async (e: any) => {
     e.preventDefault()
 
-    const res = await fetch(
-      API_ROUTES.LOGIN_WITHOUT_PASSWORD, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        email
-      })
-    })
+    logInWithoutPassword(email);
 
     setCurrentFormStep(LOG_IN_FORM_STEPS.CHECK_EMAIL);
   }
 
   const handleSignUp = async (e: any) => {
-
     e.preventDefault()
 
-    let { data, error } = await supabase.auth.signUp({
-      email: 'someone@email.com',
-      password: 'PauPEVlMJwNoMChheHXb'
-    })
-
+    signUp(email, password);
+    setCurrentFormStep(SIGN_UP_FORM_STEPS.VERIFY_ACCOUNT);
   }
 
   const handleNextStep = () => {
@@ -77,31 +64,17 @@ const Form = () => {
     setCurrentFormStep(LOG_IN_FORM_STEPS.TYPE_EMAIL);
   }
 
-  const handleSubmit = (event: any) => {
-    event.preventDefault();
-    // Handle form submission here
-  };
-
-  const handleTestResend = async () => {
-    const res = await fetch(
-      API_ROUTES.LOGIN_WITHOUT_PASSWORD, {
-      method: 'POST',
-      // headers: {
-      //   'Content-Type': 'application/json'
-      // },
-      body: JSON.stringify({
-        email
-      })
-    })
-
-    const data = await res.json()
+  const handleSubmit = (e: any) => {
 
   }
 
   return (
     <>
-      <form
-        className='
+      {
+        currentFormStep !== SIGN_UP_FORM_STEPS.VERIFY_ACCOUNT
+          ?
+          <form
+            className='
           flex 
           flex-col 
           w-[50%] 
@@ -113,85 +86,92 @@ const Form = () => {
           border-[#5b5b5b] 
           rounded-[6px]
         '
-        onSubmit={handleSubmit}
-      >
+            onSubmit={handleSubmit}
+          >
 
-        {
-          currentFormStep === LOG_IN_FORM_STEPS.TYPE_EMAIL &&
-          <>
-            <TypeEmail
-              email={email}
-              handleInputChange={(e: any) => setEmail(e)}
-              handleNextStep={handleNextStep}
-            />
+            {
+              currentFormStep === LOG_IN_FORM_STEPS.TYPE_EMAIL &&
+              <>
+                <TypeEmail
+                  email={email}
+                  handleInputChange={(e: any) => setEmail(e)}
+                  handleNextStep={handleNextStep}
+                />
 
-            <button
-              className={`p-2 ${BUTTON_STYLES} mb-5 rounded-[6px]`}
-              onClick={handleSendSignInLink}
-            >Send sign in link</button>
-          </>
+                <button
+                  className={`p-2 ${BUTTON_STYLES} mb-5 rounded-[6px]`}
+                  onClick={handleSendSignInLink}
+                >Send sign in link</button>
+              </>
 
-        }
+            }
 
-        {
-          isLogIn && currentFormStep === LOG_IN_FORM_STEPS.CHECK_EMAIL &&
-          <CheckEmail
-            handlePreviousStep={handlePreviousStep}
-          />
-        }
+            {
+              isLogIn && currentFormStep === LOG_IN_FORM_STEPS.CHECK_EMAIL &&
+              <CheckEmail
+                handlePreviousStep={handlePreviousStep}
+              />
+            }
 
-        {
-          isSignUp && currentFormStep === SIGN_UP_FORM_STEPS.PERSONAL_INFORMATION &&
-          <>
-            <TypeEmail
-              email={email}
-              handleInputChange={(e: any) => setEmail(e)}
-              handleNextStep={handleNextStep}
-            />
+            {
+              isSignUp && currentFormStep === SIGN_UP_FORM_STEPS.PERSONAL_INFORMATION &&
+              <>
+                <TypeEmail
+                  email={email}
+                  handleInputChange={(e: any) => setEmail(e)}
+                  handleNextStep={handleNextStep}
+                />
 
-            {/* <TypeNameInput
+                {/* <TypeNameInput
               name={name}
               handleInputChange={(e: any) => setName(e)}
             /> */}
 
-            <TypePassword
-              password={password}
-              handleInputChange={(e: any) => setPassword(e)}
-            />
+                <TypePassword
+                  password={password}
+                  handleInputChange={(e: any) => setPassword(e)}
+                />
 
-            <div className="form-group mb-5">
-              <label className='mr-4'>
-                Do you want to receive emails of new releases?
-              </label>
-              <input
-                type="checkbox"
-                checked={receiveEmails}
-                onChange={e => setReceiveEmails(e.target.checked)} />
-            </div>
+                <div className="form-group mb-5">
+                  <label className='mr-4'>
+                    Do you want to receive emails of new releases?
+                  </label>
+                  <input
+                    type="checkbox"
+                    checked={receiveEmails}
+                    onChange={e => setReceiveEmails(e.target.checked)} />
+                </div>
 
-            <button
-              className={`p-2 ${BUTTON_STYLES} mb-5 rounded-[6px]`}
-              onClick={handleSignUp}
-            >
-              Sign Up
-            </button>
-          </>
+                <button
+                  className={`p-2 ${BUTTON_STYLES} mb-5 rounded-[6px]`}
 
-        }
+                  onClick={handleSignUp}
+                >
+                  Sign Up
+                </button>
+              </>
 
-        <p className='text-center mt-6'>
-          {
-            isLogIn
-              ? <>Don't have an account? <a href="/authentication/sign-up">Sign up</a></>
-              : <>Have an account? <a href="/authentication/login">Log in</a></>
-          }
-        </p>
+            }
 
-
-        <button onClick={handleTestResend}>
-          Test Resend
-        </button>
-      </form>
+            <p className='text-center mt-6'>
+              {
+                isLogIn
+                  ? <>Don't have an account? <a href="/authentication/sign-up">Sign up</a></>
+                  : <>Have an account? <a href="/authentication/login">Log in</a></>
+              }
+            </p>
+          </form>
+          : (
+            <>
+              <p className='text-center'>
+                Check your email to verify your account
+              </p>
+              <Link href='/'>
+                <a className='text-center block mt-5'>Maybe later</a>
+            </Link>
+            </>
+          )
+      }
     </>
   )
 }
