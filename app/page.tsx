@@ -23,7 +23,6 @@ export default function Home() {
 
         <div className="mt-8">
           <span className="mr-6 p-2 bg-[#D1A8FF] text-[#000] rounded-[6px] cursor-pointer">Start!</span>
-          <span className="p-2 bg-[#444] rounded-[6px] cursor-pointer">Documentation</span>
         </div>
       </section>
 
@@ -42,35 +41,59 @@ export default function Home() {
             src={LogWorkoutVideo}
           />
         </div>
+      </section>
 
-        <div className="w-full mb-24 flex flex-col-reverse xl:flex-row justify-between items-center">
-          <Video
-            style={videoStyles}
-            className="border border-solid border-[#555555] rounded-[6px]"
-            src=""
-          />
+      <section className="min-h-[100vh]">
+        <h1 className={`${HEADINGS.H1} mb-6 font-bold`}>Coming functionalities</h1>
 
-          <div className="left xl:w-[50%] pl-6 text-center xl:text-right mb-12">
+        <div className="grid grid-cols-2 gap-2">
+          <div className="   
+            p-5
+            bg-[#464646]
+            border-[#535353]
+            rounded-[6px]
+
+            hover:cursor-pointer
+            hover:bg-[#525252]
+            transition
+            duration-350"
+          >
             <span className="text-[#D1A8FF]">Coming soon on v2!</span>
-            <h2 className={`${HEADINGS.H2} mb-4 font-bold`}>Build custom routines</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore minima minus corporis maiores obcaecati id. Quasi id asperiores perferendis, qui accusamus odit! Quas non laboriosam quaerat asperiores placeat.</p>
+            <h3>Build custom routines</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, unde.</p>
+          </div>
+          <div className="   
+            p-5
+            bg-[#464646]
+            border-[#535353]
+            rounded-[6px]
+
+            hover:cursor-pointer
+            hover:bg-[#525252]
+            transition
+            duration-350"
+          >
+            <span className="text-[#D1A8FF]">Coming soon on v2!</span>
+            <h3>Set your own goals</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, unde.</p>
+          </div>
+          <div className="   
+            p-5
+            bg-[#464646]
+            border-[#535353]
+            rounded-[6px]
+
+           
+            hover:cursor-pointer
+            hover:bg-[#525252]
+            transition
+            duration-350"
+          >
+            <span className="text-[#d9c49a]">Coming soon on v3!</span>
+            <h3>Track your progress</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, unde.</p>
           </div>
 
-
-        </div>
-
-        <div className="w-full flex flex-col xl:flex-row justify-between items-center">
-          <div className="left xl:w-[50%] pr-6 text-center xl:text-left mb-12">
-            <span className="text-[#D1A8FF]">Coming soon on v2!</span>
-            <h2 className={`${HEADINGS.H2} mb-4 font-bold`}>Set your own goals</h2>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est assumenda corrupti tempora esse non, amet, distinctio minima pariatur expedita tempore soluta quisquam, ipsum ducimus quam?</p>
-          </div>
-
-          <Video
-            style={videoStyles}
-            className="border border-solid border-[#555555] rounded-[6px]"
-            src=""
-          />
         </div>
       </section>
       <section className="min-h-[100vh]">

@@ -7,6 +7,7 @@ import './globals.css'
 import Link from 'next/link'
 import { RoutinesProvider } from './(modules)/routines/(infrastucture)/(hooks)/RoutinesContext'
 import Navbar from './components/Navbar/Navbar'
+import { AuthProvider } from './(modules)/authentication/(infrastucture)/(context)/AuthContext'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -32,9 +33,11 @@ export default function RootLayout({
 
         <main className="w-full min-h-screen p-2 sm:p-8">
           <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-          <RoutinesProvider>
+            <AuthProvider>
+            <RoutinesProvider>
             {children}
           </RoutinesProvider>
+            </AuthProvider>
         </main>
       </body>
     </html>
