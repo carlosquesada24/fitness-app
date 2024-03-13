@@ -27,18 +27,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navbar 
-          isLogged={isLogged}
-        />
 
-        <main className="w-full min-h-screen p-2 sm:p-8">
-          <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-            <AuthProvider>
+        <AuthProvider>
+          <Navbar
+            isLogged={isLogged}
+          />
+          <main className="w-full min-h-screen p-2 sm:p-8">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
             <RoutinesProvider>
-            {children}
-          </RoutinesProvider>
-            </AuthProvider>
-        </main>
+              {children}
+            </RoutinesProvider>
+          </main>
+        </AuthProvider>
       </body>
     </html>
   )
