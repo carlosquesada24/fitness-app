@@ -32,7 +32,7 @@ export const unauthenticatedLinksList = [
             `} 
         href={ROUTES.SIGN_UP}
     >
-        <span className='hidden lg:inline'>Create an account</span>
+        <span className='hidden lg:inline'>Sign Up</span>
         {/* <span className="material-symbols-outlined text-center lg:ml-3">
                     home
                   </span> */}

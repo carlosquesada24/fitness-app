@@ -48,7 +48,7 @@ const Navbar = () => {
               href={"/"}
               className={`${BUTTON_STYLES}`}
               onClick={signOut}
-            >Sign Out</Link>
+            >Log Out</Link>
         }
       </div>
     </nav>
