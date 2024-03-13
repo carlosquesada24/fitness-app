@@ -1,19 +1,17 @@
+"use client"
 import React from 'react'
-import { 
-    authenticatedLinksList, 
-    unauthenticatedLinksList 
+import {
+  authenticatedLinksList,
+  unauthenticatedLinksList
 } from '@/app/routes'
 import Link from 'next/link'
+import { useAuth } from '@/app/(modules)/authentication/(infrastucture)/(context)/AuthContext'
+import { BUTTON_STYLES } from '@/app/(styles)'
 
-interface NavbarProps {
-    isLogged: boolean
-}
+const Navbar = () => {
 
-const Navbar = ({ isLogged = false }: NavbarProps) => {
-
-  return (
-    <nav className={`
-          w-full 
+  const navbarClassnames = `
+    w-full 
           h-20
 
           lg:px-8
@@ -28,20 +26,32 @@ const Navbar = ({ isLogged = false }: NavbarProps) => {
           lg:bottom-auto
           lg:relative
           lg:bg-transparent
-          `}>
-          <Link
-            href="/"
-            className='hidden lg:block mr-auto'
-        >Fitness App</Link>
+  `
+  const { isLogged, signOut } = useAuth()
 
-          <div className='lg:flex lg:justify-between grid grid-cols-4 gap-1 w-full lg:w-auto'>
-            {
-              isLogged
-                ? authenticatedLinksList.map(link => link)
-                : unauthenticatedLinksList.map(link => link)
-            }
-          </div>
-        </nav>
+  return (
+    <nav className={navbarClassnames}>
+      <Link
+        href="/"
+        className='hidden lg:block mr-auto'
+      >Fitness App</Link>
+
+      <div className='lg:flex lg:justify-between grid grid-cols-4 gap-1 w-full lg:w-auto'>
+        {
+          isLogged
+            ? authenticatedLinksList.map(link => link)
+            : unauthenticatedLinksList.map(link => link)
+        }
+        {
+          isLogged &&
+            <Link
+              href={"/"}
+              className={`${BUTTON_STYLES}`}
+              onClick={signOut}
+            >Sign Out</Link>
+        }
+      </div>
+    </nav>
   )
 }
 
