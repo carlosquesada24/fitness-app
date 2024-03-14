@@ -7,7 +7,7 @@ import { BUTTON_STYLES } from '@/app/(styles)';
 
 import TypePassword from '../(TypePassword)/TypePassword';
 import { useAuth } from '../../(context)/AuthContext';
-import Link from 'next/link';
+import VerifyYourAccount from '../VerifyYourAccount/VerifyYourAccount';
 
 const LOG_IN_FORM_STEPS = {
   TYPE_EMAIL: 'TYPE_EMAIL',
@@ -161,16 +161,7 @@ const Form = () => {
               }
             </p>
           </form>
-          : (
-            <>
-              <p className='text-center'>
-                Check your email to verify your account
-              </p>
-              <Link href='/'>
-                <a className='text-center block mt-5'>Maybe later</a>
-            </Link>
-            </>
-          )
+          : <VerifyYourAccount/>
       }
     </>
   )
