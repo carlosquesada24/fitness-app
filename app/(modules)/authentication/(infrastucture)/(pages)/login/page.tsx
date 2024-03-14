@@ -11,4 +11,4 @@ const page = () => {
   )
 }
 
-export default isAuth(page)
+export default page
