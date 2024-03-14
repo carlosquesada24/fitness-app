@@ -11,4 +11,4 @@ const SignUp = () =>
     </>
   )
 
-export default isAuth(SignUp) 
+export default SignUp 
