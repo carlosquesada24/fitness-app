@@ -7,6 +7,7 @@ import {
 import Link from 'next/link'
 import { useAuth } from '@/app/(modules)/authentication/(infrastucture)/(context)/AuthContext'
 import { BUTTON_STYLES } from '@/app/(styles)'
+import { COLORS } from '@/app/(styles)/variables'
 
 const Navbar = () => {
 
@@ -41,8 +42,39 @@ const Navbar = () => {
       <div className='lg:flex lg:justify-between grid grid-cols-1 lg:grid-cols-4 gap-1 w-full lg:w-auto'>
         {
           isLogged
-            ? authenticatedLinksList.map(link => link)
-            : unauthenticatedLinksList.map(link => link)
+            ? authenticatedLinksList.map((link) => (
+              <Link
+                key={crypto.randomUUID()}
+                className='text-[#fff] flex items-center justify-center hover:bg-[#212121] lg:hover:bg-[transparent] lg:hover:decoration-solid lg:hover:underline lg:hover:active:bg-[#7e679752] lg:mr-6'
+                href={link.href}
+              >
+                <span className='hidden lg:inline'>{link.text}</span>
+                <span className="material-symbols-outlined text-center lg:ml-3">
+                  {link.symbolText}
+                </span>
+              </Link>
+            ))
+            : unauthenticatedLinksList.map(link => (
+              <Link
+                key={crypto.randomUUID()}
+                className={`
+                p-2 
+                bg-[#D1A8FF] 
+                text-[#000] 
+                rounded-[6px] 
+                cursor-pointer 
+          
+                ${BUTTON_STYLES}
+                bg-[${COLORS.PRIMARY}]
+          
+                text-center
+                m-auto
+              `}
+                href={link.href}
+              >
+                <span className='lg:inline'>{link.text}</span>
+              </Link>
+            ))
         }
         {
           isLogged &&

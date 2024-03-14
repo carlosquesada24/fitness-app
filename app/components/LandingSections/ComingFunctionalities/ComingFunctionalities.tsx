@@ -30,7 +30,7 @@ const ComingFunctionalitiesSection = () => {
     <div className="grid grid-cols-2 gap-2">
       {comingFunctionalitiesList.map((functionality, index) => (
         <div
-          key={index}
+        key={crypto.randomUUID()} 
           className="   
             p-5
             bg-[#464646]
