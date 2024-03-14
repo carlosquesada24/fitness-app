@@ -11,21 +11,23 @@ import { BUTTON_STYLES } from '@/app/(styles)'
 const Navbar = () => {
 
   const navbarClassnames = `
-    w-full 
-          h-20
+      w-full 
+      h-20
 
-          lg:px-8
+      lg:px-8
 
-          bg-[#252525] 
-          fixed 
-          flex 
-          justify-between 
-          items-center
-          bottom-0
-          lg:top-0
-          lg:bottom-auto
-          lg:relative
-          lg:bg-transparent
+      bg-[#252525] 
+      fixed 
+      flex 
+      justify-between 
+      items-center
+      bottom-0
+      lg:top-0
+      lg:bottom-auto
+      lg:relative
+      lg:bg-transparent
+
+      z-50
   `
   const { isLogged, signOut } = useAuth()
 
@@ -44,11 +46,11 @@ const Navbar = () => {
         }
         {
           isLogged &&
-            <Link
-              href={"/"}
-              className={`${BUTTON_STYLES}`}
-              onClick={signOut}
-            >Log Out</Link>
+          <Link
+            href={"/"}
+            className={`${BUTTON_STYLES}`}
+            onClick={signOut}
+          >Log Out</Link>
         }
       </div>
     </nav>
