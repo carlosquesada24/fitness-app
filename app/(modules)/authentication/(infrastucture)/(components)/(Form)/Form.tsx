@@ -156,8 +156,8 @@ const Form = () => {
             <p className='text-center mt-6'>
               {
                 isLogIn
-                  ? <>Don't have an account? <a href="/authentication/sign-up">Sign up</a></>
-                  : <>Have an account? <a href="/authentication/login">Log in</a></>
+                  ? <>Don't have an account? <a className='underline decoration-solid decoration-[#D1A8FF] hover:text-[#D1A8FF]' href="/authentication/sign-up">Sign Up</a></>
+                  : <>Have an account? <a className='underline decoration-solid decoration-[#D1A8FF] hover:text-[#D1A8FF]' href="/authentication/login">Log In</a></>
               }
             </p>
           </form>

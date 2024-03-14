@@ -35,7 +35,7 @@ const Navbar = () => {
     <nav className={navbarClassnames}>
       <Link
         href="/"
-        className='hidden lg:block mr-auto'
+        className='hidden lg:block mr-auto font-bold'
       >Fitness App</Link>
 
       <div className='lg:flex lg:justify-between grid grid-cols-1 lg:grid-cols-4 gap-1 w-full lg:w-auto'>
