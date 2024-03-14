@@ -15,6 +15,27 @@ export default function Home() {
 
   }
 
+  const comingFunctionalitiesList = [
+    {
+      version: 'v2',
+      versionFontColor: '#D1A8FF',
+      title: 'Build custom routines',
+      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, unde.',
+    },
+    {
+      version: 'v2',
+      versionFontColor: '#D1A8FF',
+      title: 'Set your own goals',
+      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, unde.',
+    },
+    {
+      version: 'v3',
+      versionFontColor: '#d9c49a',
+      title: 'Track your progress',
+      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, unde.',
+    }
+  ];
+
   return (
     <>
       <section className="h-[100vh] flex flex-col items-center justify-center">
@@ -36,63 +57,37 @@ export default function Home() {
           </div>
 
           <Video
-            style={{ zIndex: "1", ...videoStyles}}
+            style={{ zIndex: "1", ...videoStyles }}
             className="border border-solid border-[#555555] rounded-[6px]"
             src={LogWorkoutVideo}
           />
         </div>
       </section>
 
-      <section className="min-h-[100vh]">
+      <section id="coming-functionalities" className="min-h-[100vh]">
         <h1 className={`${HEADINGS.H1} mb-6 font-bold`}>Coming functionalities</h1>
 
         <div className="grid grid-cols-2 gap-2">
-          <div className="   
-            p-5
-            bg-[#464646]
-            border-[#535353]
-            rounded-[6px]
+          {comingFunctionalitiesList.map((functionality, index) => (
+            <div
+              key={index}
+              className="   
+                p-5
+                bg-[#464646]
+                border-[#535353]
+                rounded-[6px]
 
-            hover:cursor-pointer
-            hover:bg-[#525252]
-            transition
-            duration-350"
-          >
-            <span className="text-[#D1A8FF]">Coming soon on v2!</span>
-            <h3>Build custom routines</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, unde.</p>
-          </div>
-          <div className="   
-            p-5
-            bg-[#464646]
-            border-[#535353]
-            rounded-[6px]
-
-            hover:cursor-pointer
-            hover:bg-[#525252]
-            transition
-            duration-350"
-          >
-            <span className="text-[#D1A8FF]">Coming soon on v2!</span>
-            <h3>Set your own goals</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, unde.</p>
-          </div>
-          <div className="   
-            p-5
-            bg-[#464646]
-            border-[#535353]
-            rounded-[6px]
-
-           
-            hover:cursor-pointer
-            hover:bg-[#525252]
-            transition
-            duration-350"
-          >
-            <span className="text-[#d9c49a]">Coming soon on v3!</span>
-            <h3>Track your progress</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, unde.</p>
-          </div>
+                hover:cursor-pointer
+                hover:bg-[#525252]
+                transition
+                duration-350"
+            >
+              <span className={`text-[${functionality.versionFontColor}]`}>Coming soon on {functionality.version}!</span>
+              <h3 className={`${HEADINGS.H3} font-bold`}>{functionality.title}</h3>
+              <p>{functionality.description}</p>
+            </div>
+          ))
+          }
 
         </div>
       </section>
