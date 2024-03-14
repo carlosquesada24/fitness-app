@@ -1,3 +1,4 @@
+import isAuth from '@/app/components/PrivateRoute/PrivateRoute'
 import React from 'react'
 
 const page = () => {
@@ -9,4 +10,4 @@ const page = () => {
   )
 }
 
-export default page
+export default isAuth(page) 

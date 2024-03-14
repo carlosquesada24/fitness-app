@@ -1,5 +1,6 @@
 import React from 'react'
 import Form from '../../(components)/(Form)/Form'
+import isAuth from '@/app/components/PrivateRoute/PrivateRoute'
 
 const page = () => {
   return (
@@ -10,4 +11,4 @@ const page = () => {
   )
 }
 
-export default page
+export default isAuth(page)

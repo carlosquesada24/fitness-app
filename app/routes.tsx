@@ -2,7 +2,7 @@ import Link from "next/link"
 import { BUTTON_STYLES } from "./(styles)"
 import { COLORS } from "./(styles)/variables"
 
-const ROUTES = {
+export const ROUTES = {
     HOME: '/',
     ROUTINES: '/routines',
     PROFILE: '/profile',
