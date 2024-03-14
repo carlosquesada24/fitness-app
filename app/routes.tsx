@@ -2,7 +2,7 @@ import Link from "next/link"
 import { BUTTON_STYLES } from "./(styles)"
 import { COLORS } from "./(styles)/variables"
 
-const ROUTES = {
+export const ROUTES = {
     HOME: '/',
     ROUTINES: '/routines',
     PROFILE: '/profile',
@@ -29,13 +29,13 @@ export const unauthenticatedLinksList = [
                    
             ${BUTTON_STYLES}
             bg-[${COLORS.PRIMARY}]
+
+            text-center
+            m-auto
             `} 
         href={ROUTES.SIGN_UP}
     >
-        <span className='hidden lg:inline'>Create an account</span>
-        {/* <span className="material-symbols-outlined text-center lg:ml-3">
-                    home
-                  </span> */}
+        <span className='lg:inline'>Sign Up</span>
     </Link>
 ]
 

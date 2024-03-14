@@ -8,6 +8,7 @@ import React, { useEffect, useState } from 'react'
 import { useRoutines } from '../../../../(hooks)/RoutinesContext';
 import { EXERCISE_DEFAULT_VALUE, ROUTINE_DEFAULT_VALUE, Routine, SessionForm } from '@/app/(modules)/routines/(domain)/entities';
 import { INITIAL_SET, sessionFormInitialState, workoutSessionInitialState } from '@/app/(modules)/routines/(domain)/data';
+import isAuth from '@/app/components/PrivateRoute/PrivateRoute';
 
 const Page = ({ params }: any) => {
     const {
@@ -416,4 +417,4 @@ const Page = ({ params }: any) => {
     )
 }
 
-export default Page
+export default isAuth(Page)

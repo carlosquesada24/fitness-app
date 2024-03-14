@@ -36,7 +36,7 @@ export default function Home() {
           </div>
 
           <Video
-            style={videoStyles}
+            style={{ zIndex: "1", ...videoStyles}}
             className="border border-solid border-[#555555] rounded-[6px]"
             src={LogWorkoutVideo}
           />

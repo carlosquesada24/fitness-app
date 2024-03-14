@@ -10,6 +10,7 @@ import WorkoutSessionsGrid from '../../components/ui/WorkoutSessionsGrid/Workout
 
 import START_WORKOUT_SESSION_ICON from '@/app/(assets)/startWorkoutSession.svg'
 import Image from 'next/image'
+import isAuth from '@/app/components/PrivateRoute/PrivateRoute'
 
 const Page = ({ params }: any) => {
 
@@ -66,4 +67,4 @@ const Page = ({ params }: any) => {
   )
 }
 
-export default Page
+export default isAuth(Page)
