@@ -36,7 +36,7 @@ const Navbar = () => {
         className='hidden lg:block mr-auto'
       >Fitness App</Link>
 
-      <div className='lg:flex lg:justify-between grid grid-cols-4 gap-1 w-full lg:w-auto'>
+      <div className='lg:flex lg:justify-between grid grid-cols-1 lg:grid-cols-4 gap-1 w-full lg:w-auto'>
         {
           isLogged
             ? authenticatedLinksList.map(link => link)

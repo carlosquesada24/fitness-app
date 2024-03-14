@@ -29,13 +29,13 @@ export const unauthenticatedLinksList = [
                    
             ${BUTTON_STYLES}
             bg-[${COLORS.PRIMARY}]
+
+            text-center
+            m-auto
             `} 
         href={ROUTES.SIGN_UP}
     >
-        <span className='hidden lg:inline'>Sign Up</span>
-        {/* <span className="material-symbols-outlined text-center lg:ml-3">
-                    home
-                  </span> */}
+        <span className='lg:inline'>Sign Up</span>
     </Link>
 ]
 
