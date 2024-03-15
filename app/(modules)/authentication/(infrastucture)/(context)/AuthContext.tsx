@@ -33,7 +33,7 @@ export const AuthProvider: React.FC<{ children: any }> = ({ children }) => {
     setUser(storedValue.user ?? null);
 
     loadUser()
-  }, []);
+  }, [storedValue.user]);
 
   const loadUser = async () => {
     const {data: {user}} = await supabase.auth.getUser()

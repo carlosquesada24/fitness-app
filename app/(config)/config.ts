@@ -1,4 +1,4 @@
-export default {
+const CONFIG = {
     SUPABASE: {
         PROJECT_URL: process.env.NEXT_PUBLIC_SUPABASE_PROJECT_URL,
         ANON_KEY: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
@@ -11,3 +11,5 @@ export default {
         MUX_TOKEN_ID: process.env.MUX_TOKEN_ID
     }
 }
+
+export default CONFIG

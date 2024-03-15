@@ -15,7 +15,7 @@ export default function isAuth(Component: any) {
       if (!isLogged) {
         return redirect(ROUTES.HOME);
       }
-    }, []);
+    }, [isLogged]);
 
 
     if (!isLogged) {

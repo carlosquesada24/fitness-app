@@ -8,6 +8,7 @@ import { BUTTON_STYLES } from '@/app/(styles)';
 import TypePassword from '../(TypePassword)/TypePassword';
 import { useAuth } from '../../(context)/AuthContext';
 import VerifyYourAccount from '../VerifyYourAccount/VerifyYourAccount';
+import { usePathname } from 'next/navigation';
 
 const LOG_IN_FORM_STEPS = {
   TYPE_EMAIL: 'TYPE_EMAIL',
@@ -26,7 +27,10 @@ const Form = () => {
   const [password, setPassword] = useState('');
   const [receiveEmails, setReceiveEmails] = useState(false);
 
-  const isLogIn = location.pathname.includes('login');
+  const pathname = usePathname();
+
+  const isLogIn = pathname.includes('login');
+  
   const isSignUp = !isLogIn
 
   const [currentFormStep, setCurrentFormStep] =
@@ -156,7 +160,7 @@ const Form = () => {
             <p className='text-center mt-6'>
               {
                 isLogIn
-                  ? <>Don't have an account? <a className='underline decoration-solid decoration-[#D1A8FF] hover:text-[#D1A8FF]' href="/authentication/sign-up">Sign Up</a></>
+                  ? <>{`Don't have an account?`} <a className='underline decoration-solid decoration-[#D1A8FF] hover:text-[#D1A8FF]' href="/authentication/sign-up">Sign Up</a></>
                   : <>Have an account? <a className='underline decoration-solid decoration-[#D1A8FF] hover:text-[#D1A8FF]' href="/authentication/login">Log In</a></>
               }
             </p>
