@@ -38,3 +38,23 @@ export const HEADINGS = {
     H5: "",
     H6: "",
 }
+
+export const DEFAULT_CARDS_STYLES = `
+    p-5
+    bg-[#464646]
+    border-[#535353]
+    rounded-[6px]
+
+    hover:cursor-pointer
+    hover:bg-[#525252]
+    transition
+    duration-350
+`
+
+export const DEFAULT_LANDING_SECTION_TITLE = `${HEADINGS.H1} mb-14 font-bold`
+
+export const DEFAULT_H3_STYLES = `
+    ${HEADINGS.H3} 
+    font-bold 
+    mb-2
+`

@@ -1,5 +1,5 @@
 import React from 'react'
-import { HEADINGS } from '@/app/(styles)/variables'
+import { DEFAULT_LANDING_SECTION_TITLE, HEADINGS } from '@/app/(styles)/variables'
 
 const comingFunctionalitiesList = [
     {
@@ -34,7 +34,7 @@ const comingFunctionalitiesList = [
 const ComingFunctionalitiesSection = () => {
   return (
     <section id="coming-functionalities" className="min-h-[100vh]">
-    <h1 className={`${HEADINGS.H1} mb-6 font-bold`}>Coming Functionalities</h1>
+    <h1 className={`${DEFAULT_LANDING_SECTION_TITLE}`}>Coming Functionalities</h1>
 
     <div className="grid grid-cols-2 gap-2">
     <div
@@ -104,7 +104,7 @@ const ComingFunctionalitiesSection = () => {
               inline-block 
               text-[#c33a53]
             `}
-           >Release on version 3.0!</span>
+           >Release on version 3.0</span>
           <h3 className={`${HEADINGS.H3} font-bold`}>Track your progress</h3>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, tempore!</p>
         </div>

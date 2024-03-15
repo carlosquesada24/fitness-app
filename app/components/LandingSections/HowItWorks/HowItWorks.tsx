@@ -4,7 +4,7 @@ import React from 'react'
 import { CldVideoPlayer } from 'next-cloudinary';
 import 'next-cloudinary/dist/cld-video-player.css';
 
-import { HEADINGS } from '@/app/(styles)/variables'
+import { DEFAULT_LANDING_SECTION_TITLE, HEADINGS } from '@/app/(styles)/variables'
 
 const HowItWorksSection = () => {
     let windowSize = 0;
@@ -17,7 +17,7 @@ const HowItWorksSection = () => {
         }
         return (
             <section className="min-h-[100vh]">
-                <h1 className={`${HEADINGS.H1} mb-14 font-bold`}>How it works?</h1>
+                <h1 className={`${DEFAULT_LANDING_SECTION_TITLE}`}>How it works?</h1>
 
                 <div className="w-full mb-24 flex flex-col xl:flex-row justify-between items-center">
                     <div className="left xl:w-[50%] xl:pr-8 mb-12 xl:mb-0 text-center xl:text-left">

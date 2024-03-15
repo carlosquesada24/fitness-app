@@ -1,11 +1,13 @@
 "use client"
 import React, { useEffect } from 'react'
 
+import { useAuth } from './(modules)/authentication/(infrastucture)/(context)/AuthContext';
+import { useRouter } from 'next/navigation';
+
 import BannerSection from './components/LandingSections/Banner/Banner';
 import ComingFunctionalitiesSection from "./components/LandingSections/ComingFunctionalities/ComingFunctionalities";
 import HowItWorksSection from "./components/LandingSections/HowItWorks/HowItWorks";
-import { useAuth } from './(modules)/authentication/(infrastucture)/(context)/AuthContext';
-import { useRouter } from 'next/navigation';
+import BenefitsSection from "./components/LandingSections/Benefits/Benefits"
 
 export default function Home() {
 
@@ -23,7 +25,7 @@ export default function Home() {
       <BannerSection />
       <HowItWorksSection />
       <ComingFunctionalitiesSection />
-      {/* <BenefitsSection /> */}
+      <BenefitsSection />
       {/* <ContactSection /> */}
     </>
   )
