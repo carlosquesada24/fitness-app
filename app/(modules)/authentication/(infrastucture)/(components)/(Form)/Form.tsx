@@ -81,7 +81,8 @@ const Form = () => {
             className='
           flex 
           flex-col 
-          w-[50%] 
+          lg:w-[50%]
+          w-[100%] 
           p-5 
           m-auto 
           bg-[#444444] 

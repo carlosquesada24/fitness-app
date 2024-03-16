@@ -26,6 +26,7 @@ export const BUTTON_STYLES = `
 
     bg-[#D1A8FF]
     text-[#000]
+    font-bold
     hover:cursor-pointer
     hover:bg-[#cfcfcf]
     transition

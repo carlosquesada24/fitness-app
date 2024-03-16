@@ -18,7 +18,7 @@ const Navbar = () => {
       lg:px-8
 
       bg-[#252525] 
-      fixed 
+      fixed
       flex 
       justify-between 
       items-center
@@ -39,7 +39,20 @@ const Navbar = () => {
         className='hidden lg:block mr-auto font-bold'
       >Fitness App</Link>
 
-      <div className='lg:flex lg:justify-between grid grid-cols-1 lg:grid-cols-4 gap-1 w-full lg:w-auto'>
+      <div 
+        className='
+        px-4
+        sm:px-0
+        m-auto
+        lg:m-0
+        container
+          flex 
+          justify-between 
+          items-center
+          lg:items-end
+          w-full 
+          lg:w-auto
+        '>
         {
           isLogged
             ? authenticatedLinksList.map((link) => (
@@ -54,27 +67,38 @@ const Navbar = () => {
                 </span>
               </Link>
             ))
-            : unauthenticatedLinksList.map(link => (
-              <Link
-                key={crypto.randomUUID()}
-                className={`
-                p-2 
-                bg-[#D1A8FF] 
-                text-[#000] 
-                rounded-[6px] 
-                cursor-pointer 
-          
-                ${BUTTON_STYLES}
-                bg-[${COLORS.PRIMARY}]
-          
-                text-center
-                m-auto
-              `}
-                href={link.href}
-              >
-                <span className='lg:inline'>{link.text}</span>
-              </Link>
-            ))
+            : (
+              <>
+                <Link
+                  href="/"
+                  className='block lg:hidden mr-auto font-bold'
+                >Fitness App</Link>
+                {
+                  unauthenticatedLinksList.map(link => (
+                    <Link
+                      key={crypto.randomUUID()}
+                      className={`
+                    p-2 
+                    bg-[#D1A8FF] 
+                    text-[#000] 
+                    rounded-[6px] 
+                    cursor-pointer 
+              
+                    ${BUTTON_STYLES}
+                    bg-[${COLORS.PRIMARY}]
+              
+                    text-center
+                  
+                  `}
+                      href={link.href}
+                    >
+                      <span className='lg:inline'>{link.text}</span>
+                    </Link>
+
+                  ))
+                }
+              </>
+            )
         }
         {
           isLogged &&

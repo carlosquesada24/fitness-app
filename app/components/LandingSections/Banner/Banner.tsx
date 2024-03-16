@@ -1,5 +1,6 @@
 import React from 'react'
 import { HEADINGS } from '@/app/(styles)/variables'
+import Link from 'next/link'
 
 const Banner = () => {
   return (
@@ -8,7 +9,10 @@ const Banner = () => {
         <p className="mt-2">Streamline Your Fitness Journey with our All-in-One App: Track Gym Progress & Manage Delicious Recipes for Optimal Health & Wellness!</p>
 
         <div className="mt-8">
-          <span className="mr-6 p-2 bg-[#D1A8FF] text-[#000] rounded-[6px] cursor-pointer">Start!</span>
+          <Link 
+            className="mr-6 p-2 bg-[#D1A8FF] text-[#000] font-bold rounded-[6px] cursor-pointer"
+            href={"/authentication/sign-up"}
+          >Start!</Link>
         </div>
       </section>
   )
