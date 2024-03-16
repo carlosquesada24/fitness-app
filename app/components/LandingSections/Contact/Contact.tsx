@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { BUTTON_STYLES, INPUT_STYLES } from '@/app/(styles)';
 import { DEFAULT_LANDING_SECTION_TITLE, HEADINGS } from '@/app/(styles)/variables'
+import { supabase } from '@/app/(config)/supabase';
 
 const formStyles = `
   lg:w-[80%]
@@ -22,14 +23,27 @@ const formStyles = `
 
 const Contact = () => {
   const [email, setEmail] = useState('');
+  const cleanEmailInput = () => setEmail('');
 
-  const handleSubmit = (event: any) => {
+  const handleSubmit = async (event: any) => {
     event.preventDefault();
-    // Handle the newsletter subscription here
+
+    const { error } = 
+      await supabase
+        .from('Emails')
+        .insert(
+          { email }
+        );
+
+    error === null
+      ? alert('Thank you for subscribing to our newsletter!')
+      : alert('An error occurred. Please try again.')
+
+    cleanEmailInput();
   };
 
   return (
-    <section 
+    <section
       className="h-auto mb-20"
     >
       <h1 className={`${DEFAULT_LANDING_SECTION_TITLE}`}>Contact</h1>
