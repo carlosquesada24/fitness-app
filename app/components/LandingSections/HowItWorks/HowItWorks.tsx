@@ -16,7 +16,7 @@ const HowItWorksSection = () => {
             width: windowSize >= 1280 ? "60%" : "100%"
         }
         return (
-            <section className="min-h-[100vh]">
+            <section className="h-auto mb-20" >
                 <h1 className={`${DEFAULT_LANDING_SECTION_TITLE}`}>How it works?</h1>
 
                 <div className="w-full mb-24 flex flex-col xl:flex-row justify-between items-center">
@@ -33,7 +33,7 @@ const HowItWorksSection = () => {
                     />
                 </div>
 
-                <div className="w-full mb-24 flex flex-col xl:flex-row justify-between items-center">
+                <div className="w-full flex flex-col xl:flex-row justify-between items-center">
                     <CldVideoPlayer
                         width="1920"
                         height="1080"

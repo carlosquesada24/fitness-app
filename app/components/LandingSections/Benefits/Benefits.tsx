@@ -3,7 +3,7 @@ import React from 'react'
 
 const Benefits = () => {
   return (
-    <section className="min-h-[100vh]">
+    <section className="mb-20">
       <h1 className={`${DEFAULT_LANDING_SECTION_TITLE}`}>Benefits</h1>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">

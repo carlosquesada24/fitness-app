@@ -33,7 +33,10 @@ const comingFunctionalitiesList = [
 
 const ComingFunctionalitiesSection = () => {
   return (
-    <section id="coming-functionalities" className="min-h-[100vh]">
+    <section 
+      id="coming-functionalities" 
+      className='h-auto mb-20'
+    >
     <h1 className={`${DEFAULT_LANDING_SECTION_TITLE}`}>Coming Functionalities</h1>
 
     <div className="grid grid-cols-2 gap-2">
