@@ -6,6 +6,7 @@ export const routinesList: Routine[] = [
     name: "Best chest for motherfuckers",
     description: "Description 1",
     totalExercisesCount: 3,
+    estimatedCaloriesToBurn: 110,
     estimatedTime: 35,
     exercisesList: [
       {
@@ -65,6 +66,7 @@ export const routinesList: Routine[] = [
     name: "Back",
     description: "Description 2",
     totalExercisesCount: 5,
+    estimatedCaloriesToBurn: 145,
     estimatedTime: 90,
     exercisesList: [
       {
@@ -124,6 +126,7 @@ export const routinesList: Routine[] = [
     name: "Arms",
     description: "Description 3",
     totalExercisesCount: 9,
+    estimatedCaloriesToBurn: 130,
     estimatedTime: 73,
     exercisesList: [
       {
@@ -213,6 +216,7 @@ export const routinesList: Routine[] = [
     name: "Legs",
     description: "Description 4",
     totalExercisesCount: 5,
+    estimatedCaloriesToBurn: 196,
     estimatedTime: 54,
     exercisesList: [
       {
