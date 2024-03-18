@@ -349,6 +349,7 @@ export const fitnessAppContextInitialState: FitnessAppContext = {
       "description": "Description 1",
       "totalExercisesCount": 2,
       "estimatedTime": 6,
+      estimatedCaloriesToBurn: 110,
       "exercisesList": [
         {
           "id": "bf48666a-6686-4457-bc57-f619e70089ec",
@@ -369,6 +370,7 @@ export const fitnessAppContextInitialState: FitnessAppContext = {
       "name": "Back",
       "description": "Description 2",
       "totalExercisesCount": 2,
+      estimatedCaloriesToBurn: 145,
       "estimatedTime": 6,
       "exercisesList": [
         {
@@ -391,6 +393,7 @@ export const fitnessAppContextInitialState: FitnessAppContext = {
       "name": "Arms",
       "description": "Description 2",
       "totalExercisesCount": 4,
+      estimatedCaloriesToBurn: 130,
       "estimatedTime": 16,
       "exercisesList": [
         {
@@ -431,6 +434,7 @@ export const fitnessAppContextMinimalState: FitnessAppContext = {
       "name": "Chest",
       "description": "Description 1",
       "totalExercisesCount": 3,
+      estimatedCaloriesToBurn: 110,
       "estimatedTime": 35,
       "exercisesList": [
         {

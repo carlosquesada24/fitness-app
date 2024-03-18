@@ -53,7 +53,7 @@ const Page = ({ params }: any) => {
         </Link>
 
         <div className='flex flex-col items-end lg:flex-row'>
-          <span className='ml-auto lg:mr-5 text-[22px] lg:text-[24px]'>176 calories 🔥</span>
+          <span className='ml-auto lg:mr-5 text-[22px] lg:text-[24px]'>{routine?.estimatedCaloriesToBurn ?? 0} calories 🔥</span>
           <span className='text-[22px] lg:text-[24px]'>{routine?.estimatedTime} min 🕙</span>
         </div>
       </div>
