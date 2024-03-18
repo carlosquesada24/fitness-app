@@ -12,7 +12,8 @@ import { usePathname } from 'next/navigation';
 
 const LOG_IN_FORM_STEPS = {
   TYPE_EMAIL: 'TYPE_EMAIL',
-  CHECK_EMAIL: 'CHECK_EMAIL',
+  // CHECK_EMAIL: 'CHECK_EMAIL',
+  VERIFY_ACCOUNT: "VERIFY_ACCOUNT",
 }
 
 const SIGN_UP_FORM_STEPS = {
@@ -50,7 +51,7 @@ const Form = () => {
 
     logInWithoutPassword(email);
 
-    setCurrentFormStep(LOG_IN_FORM_STEPS.CHECK_EMAIL);
+    setCurrentFormStep(LOG_IN_FORM_STEPS.VERIFY_ACCOUNT);
   }
 
   const handleSignUp = async (e: any) => {
@@ -112,10 +113,8 @@ const Form = () => {
             }
 
             {
-              isLogIn && currentFormStep === LOG_IN_FORM_STEPS.CHECK_EMAIL &&
-              <CheckEmail
-                handlePreviousStep={handlePreviousStep}
-              />
+              isLogIn && currentFormStep === LOG_IN_FORM_STEPS.VERIFY_ACCOUNT &&
+              <VerifyYourAccount/>
             }
 
             {
