@@ -40,9 +40,6 @@ const Page = ({ params }: any) => {
             ) ?? ROUTINE_DEFAULT_VALUE
         )
 
-        setCurrentExercise(routine?.exercisesList[0]
-            ?? EXERCISE_DEFAULT_VALUE)
-
     }, [routine, params.id, routinesList])
 
     const { values: formValues, handleInputChange } = useForm(sessionFormInitialState)
