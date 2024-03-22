@@ -13,6 +13,7 @@ export const ROUTINE_DEFAULT_VALUE: Routine = {
     name: "",
     description: "",
     totalExercisesCount: 0,
+    estimatedCaloriesToBurn: 0,
     estimatedTime: 0,
     exercisesList: [],
     workoutSessionLogsList: [],
@@ -30,6 +31,7 @@ export interface Routine {
     name: string,
     description: string,
     totalExercisesCount: number,
+    estimatedCaloriesToBurn: number
     estimatedTime: number
     exercisesList: Exercise[]
     workoutSessionLogsList: WorkoutSessionLog[]

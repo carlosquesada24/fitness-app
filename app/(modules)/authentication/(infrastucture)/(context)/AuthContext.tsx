@@ -6,36 +6,40 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 
 interface AuthContextData {
     user: any;
+    isLogged: boolean
     signUp: (email: string, password: string) => void;
     logInWithoutPassword: (email: string) => void;
+    signOut: () => void;
 }
 
-// Create the context
 export const AuthContext = createContext<AuthContextData>({
     user: {},
+    isLogged: false,
     signUp: (email: string, password: string) => {},
-    logInWithoutPassword: () => {}
+    logInWithoutPassword: () => {},
+    signOut: () => {}
 });
 
-// Create a provider component
 export const AuthProvider: React.FC<{ children: any }> = ({ children }) => {
-  const [user, setUser] = useState({});
-  
+  const [user, setUser] = useState<any>(null);
+  const [isLogged, setIsLogged] = useState(false);
+
   const {
     storedValue,
     setValue
-  } = useLocalStorage("user", { user: {} })
+  } = useLocalStorage("user", { user: null })
 
   useEffect(() => {
-    setUser(storedValue.user ?? {});
+    setUser(storedValue.user ?? null);
 
     loadUser()
-  }, []);
+  }, [storedValue.user]);
 
   const loadUser = async () => {
-    const {data: user} = await supabase.auth.getUser()
+    const {data: {user}} = await supabase.auth.getUser()
 
     setUser(user)
+    setIsLogged(user !== null)
   }
 
   const signUp = async (email: string, password: string) => 
@@ -54,20 +58,24 @@ export const AuthProvider: React.FC<{ children: any }> = ({ children }) => {
       })
   
 
-  const signOut = async () => {}
+  const signOut = async () => {
+    await supabase.auth.signOut()
+    setUser(null)
+  }
 
   return (
     <AuthContext.Provider value={{
       user,
+      isLogged,
       signUp,
-      logInWithoutPassword
+      logInWithoutPassword,
+      signOut
     }}>
       {children}
     </AuthContext.Provider>
   );
 };
 
-// Create a custom hook to use the RoutinesContext
 export const useAuth = (): AuthContextData => {
   const context = useContext(AuthContext);
   if (!context) {

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev & npx next-video sync -w",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -12,7 +12,7 @@
     "@supabase/auth-helpers-nextjs": "^0.9.0",
     "@supabase/supabase-js": "^2.39.7",
     "next": "14.0.4",
-    "next-video": "^0.15.0",
+    "next-cloudinary": "^6.3.0",
     "react": "^18",
     "react-dom": "^18"
   },

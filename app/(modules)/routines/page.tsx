@@ -3,6 +3,7 @@
 import React from 'react'
 import RoutinesGrid from './(infrastucture)/components/ui/RoutinesGrid/RoutinesGrid'
 import { HEADINGS } from '@/app/(styles)/variables'
+import isAuth from '@/app/components/PrivateRoute/PrivateRoute'
 
 const page = () => {
   return (
@@ -14,4 +15,4 @@ const page = () => {
   )
 }
 
-export default page
+export default isAuth(page)

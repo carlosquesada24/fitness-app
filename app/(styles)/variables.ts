@@ -31,10 +31,30 @@ export const COLORS = {
 export const PADDING = ""
 
 export const HEADINGS = {
-    H1: "text-[38px] sm:text-[52px]",
+    H1: "text-[46px] sm:text-[52px]",
     H2: "text-[42px]",
     H3: "text-[28px] sm:text-[32px]",
     H4: "",
     H5: "",
     H6: "",
 }
+
+export const DEFAULT_CARDS_STYLES = `
+    p-5
+    bg-[#464646]
+    border-[#535353]
+    rounded-[6px]
+
+    hover:cursor-pointer
+    hover:bg-[#525252]
+    transition
+    duration-350
+`
+
+export const DEFAULT_LANDING_SECTION_TITLE = `${HEADINGS.H1} mb-8 font-bold`
+
+export const DEFAULT_H3_STYLES = `
+    ${HEADINGS.H3} 
+    font-bold 
+    mb-2
+`

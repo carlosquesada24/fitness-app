@@ -36,7 +36,7 @@ export const RoutinesProvider: React.FC<{ children: any }> = ({ children }) => {
   useEffect(() => {
     setRoutinesList(storedValue.routinesList ?? []);
     setworkoutSession([]);
-  }, []);
+  }, [storedValue.routinesList]);
 
   const addRoutine = (routine: Routine) => {
     setRoutinesList((prevRoutines) => [...prevRoutines, routine]);

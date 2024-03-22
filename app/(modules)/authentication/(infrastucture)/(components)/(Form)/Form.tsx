@@ -7,11 +7,13 @@ import { BUTTON_STYLES } from '@/app/(styles)';
 
 import TypePassword from '../(TypePassword)/TypePassword';
 import { useAuth } from '../../(context)/AuthContext';
-import Link from 'next/link';
+import VerifyYourAccount from '../VerifyYourAccount/VerifyYourAccount';
+import { usePathname } from 'next/navigation';
 
 const LOG_IN_FORM_STEPS = {
   TYPE_EMAIL: 'TYPE_EMAIL',
-  CHECK_EMAIL: 'CHECK_EMAIL',
+  // CHECK_EMAIL: 'CHECK_EMAIL',
+  VERIFY_ACCOUNT: "VERIFY_ACCOUNT",
 }
 
 const SIGN_UP_FORM_STEPS = {
@@ -26,7 +28,10 @@ const Form = () => {
   const [password, setPassword] = useState('');
   const [receiveEmails, setReceiveEmails] = useState(false);
 
-  const isLogIn = location.pathname.includes('login');
+  const pathname = usePathname();
+
+  const isLogIn = pathname.includes('login');
+  
   const isSignUp = !isLogIn
 
   const [currentFormStep, setCurrentFormStep] =
@@ -46,7 +51,7 @@ const Form = () => {
 
     logInWithoutPassword(email);
 
-    setCurrentFormStep(LOG_IN_FORM_STEPS.CHECK_EMAIL);
+    setCurrentFormStep(LOG_IN_FORM_STEPS.VERIFY_ACCOUNT);
   }
 
   const handleSignUp = async (e: any) => {
@@ -77,7 +82,8 @@ const Form = () => {
             className='
           flex 
           flex-col 
-          w-[50%] 
+          lg:w-[50%]
+          w-[100%] 
           p-5 
           m-auto 
           bg-[#444444] 
@@ -107,10 +113,8 @@ const Form = () => {
             }
 
             {
-              isLogIn && currentFormStep === LOG_IN_FORM_STEPS.CHECK_EMAIL &&
-              <CheckEmail
-                handlePreviousStep={handlePreviousStep}
-              />
+              isLogIn && currentFormStep === LOG_IN_FORM_STEPS.VERIFY_ACCOUNT &&
+              <VerifyYourAccount/>
             }
 
             {
@@ -156,21 +160,12 @@ const Form = () => {
             <p className='text-center mt-6'>
               {
                 isLogIn
-                  ? <>Don't have an account? <a href="/authentication/sign-up">Sign up</a></>
-                  : <>Have an account? <a href="/authentication/login">Log in</a></>
+                  ? <>{`Don't have an account?`} <a className='underline decoration-solid decoration-[#D1A8FF] hover:text-[#D1A8FF]' href="/authentication/sign-up">Sign Up</a></>
+                  : <>Have an account? <a className='underline decoration-solid decoration-[#D1A8FF] hover:text-[#D1A8FF]' href="/authentication/login">Log In</a></>
               }
             </p>
           </form>
-          : (
-            <>
-              <p className='text-center'>
-                Check your email to verify your account
-              </p>
-              <Link href='/'>
-                <a className='text-center block mt-5'>Maybe later</a>
-            </Link>
-            </>
-          )
+          : <VerifyYourAccount/>
       }
     </>
   )

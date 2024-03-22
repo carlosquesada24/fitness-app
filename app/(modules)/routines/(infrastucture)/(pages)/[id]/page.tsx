@@ -10,6 +10,7 @@ import WorkoutSessionsGrid from '../../components/ui/WorkoutSessionsGrid/Workout
 
 import START_WORKOUT_SESSION_ICON from '@/app/(assets)/startWorkoutSession.svg'
 import Image from 'next/image'
+import isAuth from '@/app/components/PrivateRoute/PrivateRoute'
 
 const Page = ({ params }: any) => {
 
@@ -52,7 +53,7 @@ const Page = ({ params }: any) => {
         </Link>
 
         <div className='flex flex-col items-end lg:flex-row'>
-          <span className='ml-auto lg:mr-5 text-[22px] lg:text-[24px]'>176 calories 🔥</span>
+          <span className='ml-auto lg:mr-5 text-[22px] lg:text-[24px]'>{routine?.estimatedCaloriesToBurn ?? 0} calories 🔥</span>
           <span className='text-[22px] lg:text-[24px]'>{routine?.estimatedTime} min 🕙</span>
         </div>
       </div>
@@ -66,4 +67,4 @@ const Page = ({ params }: any) => {
   )
 }
 
-export default Page
+export default isAuth(Page)
