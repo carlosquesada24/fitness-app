@@ -149,7 +149,11 @@ const Page = ({ params }: any) => {
     const isCurrentSetLast = currentSet === allSets
     const isLastExercise = currentExerciseIndex === routine?.exercisesList.length - 1
     const isNextDisabled =
-        !((formValues as SessionForm).reps > 0 && (formValues as SessionForm).weight > 0)
+        !(
+            (formValues as SessionForm).reps > 0 && 
+            (formValues as SessionForm).weight > 0 && 
+            (formValues as SessionForm).restTimeInMinutes > 0
+        )
 
     const nextExercise = routine?.exercisesList[currentExerciseIndex + 1]
 
