@@ -1,14 +1,10 @@
-import Link from "next/link"
-import { BUTTON_STYLES } from "./(styles)"
-import { COLORS } from "./(styles)/variables"
-
 export const ROUTES = {
     HOME: '/',
     ROUTINES: '/routines',
     PROFILE: '/profile',
 
-    SIGN_UP: "authentication/sign-up",
-    LOGIN: "authentication/login",
+    SIGN_UP: "/authentication/sign-up",
+    LOGIN: "/authentication/login",
 }
 
 export const API_ROUTES = {

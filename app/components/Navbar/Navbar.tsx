@@ -102,11 +102,11 @@ const Navbar = () => {
         }
         {
           isLogged &&
-          <Link
-            href={"/"}
-            className={`${BUTTON_STYLES}`}
-            onClick={signOut}
-          >Log Out</Link>
+            <Link
+              href={"/"}
+              className={`${BUTTON_STYLES}`}
+              onClick={signOut}
+            >Log Out</Link>
         }
       </div>
     </nav>

@@ -1,7 +1,6 @@
 "use client"
 import React from 'react'
 import { useState } from 'react'
-import CheckEmail from '../(CheckEmail)/CheckEmail';
 import TypeEmail from '../(TypeEmail)/TypeEmail';
 import { BUTTON_STYLES } from '@/app/(styles)';
 
@@ -61,17 +60,9 @@ const Form = () => {
     setCurrentFormStep(SIGN_UP_FORM_STEPS.VERIFY_ACCOUNT);
   }
 
-  const handleNextStep = () => {
+  const handleNextStep = () => {}
 
-  }
-
-  const handlePreviousStep = () => {
-    setCurrentFormStep(LOG_IN_FORM_STEPS.TYPE_EMAIL);
-  }
-
-  const handleSubmit = (e: any) => {
-
-  }
+  const handleSubmit = (e: any) => {}
 
   return (
     <>
