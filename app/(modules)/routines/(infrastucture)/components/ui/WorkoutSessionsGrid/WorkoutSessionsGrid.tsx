@@ -18,14 +18,14 @@ const WorkoutSessionsGrid = ({workoutSessionsList}: WorkoutSessionGridProps) => 
     workoutSessionsList.length > 0 ?
       workoutSessionsList.map((session: any) => {
         return (
-          <Link
-            key={crypto.randomUUID()}
-            className='text-center overflow-hidden rounded-[6px] hover:cursor-pointer '
-            href={`/routines/${session.id}`}
-            style={{
-              border: "1px solid #535353",
-            }}
-          >
+          // <Link
+          //   key={crypto.randomUUID()}
+          //   className='text-center overflow-hidden rounded-[6px] hover:cursor-pointer '
+          //   href={`/routines/${session.id}`}
+          //   style={{
+          //     border: "1px solid #535353",
+          //   }}
+          // >
             <article 
               key={crypto.randomUUID()} 
               className={`
@@ -33,7 +33,7 @@ const WorkoutSessionsGrid = ({workoutSessionsList}: WorkoutSessionGridProps) => 
               `}>
               <h2 className='m-auto font-bold'>{formatDate(session?.date ?? "")}</h2>
             </article>
-          </Link>
+          // </Link>
         )
       })
       : <h3>There are no workout logs yet</h3>
